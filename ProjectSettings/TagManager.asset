@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Checkpoint
+  - MovingPlatform
+  - Door
+  - Thorn
+  - Collectable
+  - Deadzone
   layers:
   - Default
   - TransparentFX
@@ -11,12 +18,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Ladder
+  - Player
+  - Invincible
+  - Dead
+  - Enemy
   - 
   - 
   - 
@@ -38,6 +45,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1290100169
+    locked: 0
+  - name: Forceground
+    uniqueID: 786339219
+    locked: 0
+  - name: Gameplay
+    uniqueID: 1481398349
+    locked: 0
+  - name: Front
+    uniqueID: 3244957143
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
