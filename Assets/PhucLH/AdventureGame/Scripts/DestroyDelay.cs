@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DestroyDelay : MonoBehaviour
 {
     public float timeToDestroy;
@@ -9,7 +10,7 @@ public class DestroyDelay : MonoBehaviour
 
     private void Awake()
     {
-        if(!isOverride)
+        if (!isOverride)
             DestroyObj();
     }
 
@@ -18,3 +19,5 @@ public class DestroyDelay : MonoBehaviour
         Destroy(gameObject, timeToDestroy);
     }
 }
+
+

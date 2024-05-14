@@ -3,94 +3,93 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace UDEV.PlatformGame
+
+public class FlashVfx : MonoBehaviour
 {
-    public class FlashVfx : MonoBehaviour
+    public SpriteRenderer[] spriteRenderers;
+    [Range(0f, 0.15f)]
+    public float flashRate;
+    public Color normalColor;
+    public Color flashColor;
+
+    public UnityEvent OnCompleted;
+
+    bool m_isFlashing;
+
+    float m_flashingTime;
+
+    Coroutine m_flash;
+
+    private void OnDisable()
     {
-        public SpriteRenderer[] spriteRenderers;
-        [Range(0f, 0.15f)]
-        public float flashRate;
-        public Color normalColor;
-        public Color flashColor;
+        SetSpritesAlpha(normalColor);
+        StopFlash();
+    }
 
-        public UnityEvent OnCompleted;
+    public void Flash(float time)
+    {
+        if (gameObject.activeInHierarchy)
+            m_flash = StartCoroutine(FlashCo(time));
+    }
 
-        bool m_isFlashing;
+    public void StopFlash()
+    {
+        m_isFlashing = false;
 
-        float m_flashingTime;
+        if (m_flash != null)
+            StopCoroutine(m_flash);
+    }
 
-        Coroutine m_flash;
-
-        private void OnDisable()
+    IEnumerator FlashCo(float time)
+    {
+        if (!m_isFlashing)
         {
-            SetSpritesAlpha(normalColor);
-            StopFlash();
-        }
+            m_flashingTime = time;
 
-        public void Flash(float time)
-        {
-            if (gameObject.activeInHierarchy)
-                m_flash = StartCoroutine(FlashCo(time));
-        }
+            m_isFlashing = true;
 
-        public void StopFlash()
-        {
-            m_isFlashing = false;
-
-            if (m_flash != null)
-                StopCoroutine(m_flash);
-        }
-
-        IEnumerator FlashCo(float time)
-        {
-            if (!m_isFlashing)
+            while (m_flashingTime > 0)
             {
-                m_flashingTime = time;
+                SetSpritesAlpha(flashColor);
+                yield return new WaitForSeconds(flashRate);
+                SetSpritesAlpha(normalColor);
+                yield return new WaitForSeconds(flashRate);
+                SetSpritesAlpha(flashColor);
+                yield return new WaitForSeconds(flashRate);
+                SetSpritesAlpha(normalColor);
+            }
 
-                m_isFlashing = true;
+            m_isFlashing = false;
+        }
+        yield return null;
+    }
 
-                while (m_flashingTime > 0)
-                {
-                    SetSpritesAlpha(flashColor);
-                    yield return new WaitForSeconds(flashRate);
-                    SetSpritesAlpha(normalColor);
-                    yield return new WaitForSeconds(flashRate);
-                    SetSpritesAlpha(flashColor);
-                    yield return new WaitForSeconds(flashRate);
-                    SetSpritesAlpha(normalColor);
-                }
+    public void SetSpritesAlpha(Color color)
+    {
+        if (spriteRenderers != null && spriteRenderers.Length > 0)
+        {
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                if (spriteRenderers[i] != null)
+                    spriteRenderers[i].color = color;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (m_flashingTime > 0 && m_isFlashing)
+        {
+            m_flashingTime -= Time.deltaTime;
+
+            if (m_flashingTime <= 0)
+            {
+                if (OnCompleted != null)
+                    OnCompleted.Invoke();
 
                 m_isFlashing = false;
-            }
-            yield return null;
-        }
-
-        public void SetSpritesAlpha(Color color)
-        {
-            if (spriteRenderers != null && spriteRenderers.Length > 0)
-            {
-                for (int i = 0; i < spriteRenderers.Length; i++)
-                {
-                    if (spriteRenderers[i] != null)
-                        spriteRenderers[i].color = color;
-                }
-            }
-        }
-
-        private void Update()
-        {
-            if (m_flashingTime > 0 && m_isFlashing)
-            {
-                m_flashingTime -= Time.deltaTime;
-
-                if (m_flashingTime <= 0)
-                {
-                    if (OnCompleted != null)
-                        OnCompleted.Invoke();
-
-                    m_isFlashing = false;
-                }
             }
         }
     }
 }
+
