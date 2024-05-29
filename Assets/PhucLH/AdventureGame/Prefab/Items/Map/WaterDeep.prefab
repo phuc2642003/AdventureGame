@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3418143786924826949}
   - component: {fileID: 2268370496266627173}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterSurface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8710204750818826802}
   - component: {fileID: 6208381350770665468}
   - component: {fileID: 238191146161807487}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterDeep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
