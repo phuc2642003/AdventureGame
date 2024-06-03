@@ -54,10 +54,10 @@ namespace PhucLH.AdventureGame
 
     public enum PlayerAnimState
     {
-        SayHello,
+        SayHi,
         Walk,
         Jump,
-        OnAir,
+        Onair,
         Land,
         Swim,
         FireBullet,

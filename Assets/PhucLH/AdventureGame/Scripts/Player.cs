@@ -35,15 +35,31 @@ namespace PhucLH.AdventureGame
         }    
         private bool IsJumping
         {
-            get => fsm.State == PlayerAnimState.Jump || fsm.State == PlayerAnimState.Land || fsm.State == PlayerAnimState.OnAir;
+            get => fsm.State == PlayerAnimState.Jump || fsm.State == PlayerAnimState.Land || fsm.State == PlayerAnimState.Onair;
         }    
         private bool IsFlying
         {
-            get => fsm.State == PlayerAnimState.OnAir || fsm.State == PlayerAnimState.Fly || fsm.State == PlayerAnimState.FlyOnAir;
+            get => fsm.State == PlayerAnimState.Onair || fsm.State == PlayerAnimState.Fly || fsm.State == PlayerAnimState.FlyOnAir;
         }
         private bool IsAttacking
         {
             get => fsm.State == PlayerAnimState.HammerAttack || fsm.State == PlayerAnimState.FireBullet;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            fsm = StateMachine<PlayerAnimState>.Initialize(this);
+            fsm.ChangeState(PlayerAnimState.Idle);
+        }
+
+        protected override void Init()
+        {
+            base.Init();
+            if(stat!=null)
+            {
+                currentStat = (PlayerStat)stat;
+            }    
         }
 
         private void ActionHandle()
@@ -61,7 +77,7 @@ namespace PhucLH.AdventureGame
             var animClip = Helper.GetClip(m_anim, fsm.State.ToString());
             if(animClip!=null)
             {
-                yield return new WaitForSeconds(extraTime);
+                yield return new WaitForSeconds(animClip.length + extraTime);
                 ChangeState(newState);
             }
             yield return null;
@@ -86,12 +102,7 @@ namespace PhucLH.AdventureGame
                 inWaterColider.enabled = colider == PlayerCollider.InWater;
             }
         }
-        protected override void Awake()
-        {
-            base.Awake();
-            fsm = StateMachine<PlayerAnimState>.Initialize(this);
-            fsm.ChangeState(PlayerAnimState.HammerAttack);
-        }
+        
         protected override void Dead()
         {
             base.Dead();
@@ -123,35 +134,75 @@ namespace PhucLH.AdventureGame
             m_rb.gravityScale = m_startingGrav;
             m_rb.velocity = new Vector2(m_rb.velocity.x, currentStat.jumpForce);
         }    
-
-        #region FSM
-        void SayHello_Enter() { }
-        void SayHello_Update() 
+        private void HorizontalMove()
         {
-            Helper.PlayAnim(m_anim, PlayerAnimState.SayHello.ToString());
+            if (GamepadController.Ins.CanMoveLeft)
+            {
+                Move(Direction.Left);
+            }
+            if (GamepadController.Ins.CanMoveRight)
+            {
+                Move(Direction.Right);
+            }
+        }    
+        #region FSM
+        void SayHi_Enter() { }
+        void SayHi_Update() 
+        {
+            Helper.PlayAnim(m_anim, PlayerAnimState.SayHi.ToString());
         }
-        void SayHello_Exit() { }
+        void SayHi_Exit() { }
         void Walk_Enter() {
             ActiveColider(PlayerCollider.Default);
             m_curSpeed = stat.moveSpeed;
         }
         void Walk_Update() {
-
+            HorizontalMove();
+            if(!GamepadController.Ins.CanMoveLeft&&!GamepadController.Ins.CanMoveRight)
+            {
+                ChangeState(PlayerAnimState.Idle);
+            }
+            if(GamepadController.Ins.CanJump)
+            {
+                Jump();
+                ChangeState(PlayerAnimState.Jump);
+            }    
             Helper.PlayAnim(m_anim, PlayerAnimState.Walk.ToString());
         }
         void Walk_Exit() { }
-        void Jump_Enter() { }
+        void Jump_Enter() {
+            ActiveColider(PlayerCollider.Default);
+        }
         void Jump_Update() {
+            m_rb.isKinematic = false;
+            if(m_rb.velocity.y<0 && !obstacleChecker.IsOnGround)
+            {   
+                ChangeState(PlayerAnimState.Onair);
+            }
+            HorizontalMove();
             Helper.PlayAnim(m_anim, PlayerAnimState.Jump.ToString());
         }
         void Jump_Exit() { }
-        void OnAir_Enter() { }
-        void OnAir_Update() {
-            Helper.PlayAnim(m_anim, PlayerAnimState.OnAir.ToString());
+        void Onair_Enter() {
+    
+            ActiveColider(PlayerCollider.Default);
+            
         }
-        void OnAir_Exit() { }
-        void Land_Enter() { }
+        void Onair_Update() {
+            m_rb.gravityScale = m_startingGrav;
+            if (obstacleChecker.IsOnGround)
+            {
+                ChangeState(PlayerAnimState.Land);
+            }
+            Helper.PlayAnim(m_anim, PlayerAnimState.Onair.ToString());
+        }
+        void Onair_Exit() { }
+        void Land_Enter() {
+            ActiveColider(PlayerCollider.Default);
+            ChangeStateDelay(PlayerAnimState.Idle);
+        }
         void Land_Update() {
+            m_rb.velocity = Vector2.zero;
             Helper.PlayAnim(m_anim, PlayerAnimState.Land.ToString());
         }
         void Land_Exit() { }
@@ -190,7 +241,9 @@ namespace PhucLH.AdventureGame
             Helper.PlayAnim(m_anim, PlayerAnimState.Dead.ToString());
         }
         void Dead_Exit() { }
-        void Idle_Enter() { }
+        void Idle_Enter() {
+            ActiveColider(PlayerCollider.Default);
+        }
         void Idle_Update() {
             if (GamepadController.Ins.CanJump)
             {

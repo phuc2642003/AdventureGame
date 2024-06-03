@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3671847451878340591}
   - component: {fileID: 1532123007574361548}
   - component: {fileID: 1760330457857138964}
+  - component: {fileID: 2694995479963802016}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -168,6 +169,89 @@ CapsuleCollider2D:
   m_Offset: {x: 0.12716945, y: 0.020621764}
   m_Size: {x: 1.7501985, y: 1.2600552}
   m_Direction: 1
+--- !u!114 &2694995479963802016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352294751873763659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b59dae95acc5248af314495ff1114c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 60002cf6146c1034aa513af14455266c, type: 2}
+  normalLayer: 8
+  invincibleLayer: 9
+  deadLayer: 10
+  m_anim: {fileID: 8294944779095902891}
+  flashVfx: {fileID: 0}
+  deadVfxPb: {fileID: 0}
+  jumpingFallingMultipler: 2.5
+  lowJumpingMultipler: 2.5
+  sp: {fileID: 0}
+  obstacleChecker: {fileID: 9076122404695583943}
+  defaultColider: {fileID: 3671847451878340591}
+  flyingColider: {fileID: 1532123007574361548}
+  inWaterColider: {fileID: 1760330457857138964}
+--- !u!1 &365113477248402102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8867083565734557917}
+  - component: {fileID: 9076122404695583943}
+  m_Layer: 0
+  m_Name: ObstacleChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8867083565734557917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365113477248402102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1955609021627398514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9076122404695583943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365113477248402102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66166c94104717040a812a238a50c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  ladderLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  checkingRadius: 0.15
+  deepWaterCheckingDistance: 0.1
+  offSet: {x: 0, y: -1, z: 0}
+  deepWaterOffSet: {x: 0, y: 0.45, z: 0}
 --- !u!1 &8827773452399850212
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +282,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8867083565734557917}
   m_Father: {fileID: 597867863099343228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5990746372863200519
