@@ -21,17 +21,16 @@ namespace PhucLH.AdventureGame
         public bool IsOnGround { get => isOnGround;}
         public bool IsOnWater { get => isOnWater; }
         public bool IsOnLadder { get => isOnLadder; }
+        public bool IsOnDeepWater { get => isOnDeepWater; }
 
         private void FixedUpdate()
         {
             isOnGround = OverlapChecking(groundLayer);
             isOnWater = OverlapChecking(waterLayer);
-            isOnLadder = OverlapChecking(waterLayer);
+            isOnLadder = OverlapChecking(ladderLayer);
 
             RaycastHit2D waterHit = Physics2D.Raycast(transform.position + deepWaterOffSet, Vector2.up, deepWaterCheckingDistance, waterLayer);
             isOnDeepWater = waterHit;
-
-            Debug.Log(isOnDeepWater);
         }
 
         private bool OverlapChecking(LayerMask checkingLayer)

@@ -19,7 +19,7 @@ MonoBehaviour:
   knockBackForce: 0
   invincibleTime: 0
   jumpForce: 11
-  flyingSpeed: 0
-  ladderSpeed: 0
+  flyingSpeed: 1.5
+  ladderSpeed: 3
   swimSpeed: 0
   attackRate: 0

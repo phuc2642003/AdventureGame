@@ -67,7 +67,7 @@ namespace PhucLH.AdventureGame
         OnLadder,
         Dead,
         Idle,
-        LadderIdle,
+        LadderIIdle,
         HammerAttack,
         GotHit
     }
