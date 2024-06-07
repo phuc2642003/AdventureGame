@@ -20,6 +20,6 @@ MonoBehaviour:
   invincibleTime: 0
   jumpForce: 11
   flyingSpeed: 1.5
-  ladderSpeed: 3
-  swimSpeed: 0
-  attackRate: 0
+  ladderSpeed: 2
+  swimSpeed: 4
+  attackRate: 0.7

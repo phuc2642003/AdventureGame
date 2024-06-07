@@ -8,6 +8,8 @@ namespace PhucLH.AdventureGame
     public class GameManager : Singleton<GameManager>
     {
         public GamePlaySetting setting;
+        public Player player;
+        
         // Start is called before the first frame update
         public override void Awake()
         {

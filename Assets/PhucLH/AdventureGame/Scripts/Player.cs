@@ -29,7 +29,7 @@ namespace PhucLH.AdventureGame
         private PlayerAnimState previousState;
         private float waterFallingTime = 1f;
         private float attackTime;
-        private bool isAttacked;
+        private bool wasAttacked;
 
         private bool IsDead
         {
@@ -71,10 +71,19 @@ namespace PhucLH.AdventureGame
         }
         private void ActionHandle()
         {
+            if(GamepadController.Ins.IsStatic)
+            {
+                m_rb.velocity = new Vector2(0, m_rb.velocity.y);
+            }    
             if(fsm.State!= PlayerAnimState.OnLadder && fsm.State != PlayerAnimState.LadderIIdle && obstacleChecker.IsOnLadder)
             {
                 ChangeState(PlayerAnimState.LadderIIdle);
             }
+            if(!obstacleChecker.IsOnDeepWater && !obstacleChecker.IsOnWater)
+            {
+                AttackChecking();
+            }
+            ReduceActionRate(ref wasAttacked, ref attackTime, currentStat.attackRate);
         }
         public void ChangeState(PlayerAnimState state)
         {
@@ -127,7 +136,7 @@ namespace PhucLH.AdventureGame
             if(direction == Direction.Left|| direction == Direction.Right)
             {
                 Flip(direction);
-                m_hozDir = direction == Direction.Left ? -1 : 1;
+                m_hozDir =  direction == Direction.Left ? -1 : 1;
                 m_rb.velocity = new Vector2(m_hozDir * m_curSpeed, m_rb.velocity.y);
             } 
             else if(direction == Direction.Up || direction== Direction.Down)
@@ -149,10 +158,12 @@ namespace PhucLH.AdventureGame
             if (GamepadController.Ins.CanMoveLeft)
             {
                 Move(Direction.Left);
+                Debug.Log("left");
             }
             else if (GamepadController.Ins.CanMoveRight)
             {
                 Move(Direction.Right);
+                Debug.Log("right");
             }
         } 
         private void VerticalMove()
@@ -169,50 +180,97 @@ namespace PhucLH.AdventureGame
             }
             GamepadController.Ins.CanFly = false;
         }
-        public void WaterChecking()
+        private void WaterChecking()
         {
             if (obstacleChecker.IsOnLadder) return;
 
             if(obstacleChecker.IsOnDeepWater)
             {
-
+                m_rb.gravityScale = 0f;
+                m_rb.velocity = new Vector2(m_rb.velocity.x, 0f);
+                ChangeState(PlayerAnimState.SwimOnDeep);
             }   
             else if(obstacleChecker.IsOnWater && !IsJumping)
             {
-
+                waterFallingTime -= Time.deltaTime;
+                if(waterFallingTime<=0)
+                {
+                    m_rb.gravityScale = 0f;
+                    m_rb.velocity = Vector2.zero;
+                }
+                GamepadController.Ins.CanMoveUp = false;
+                ChangeState(PlayerAnimState.Swim);
+            }    
+        } 
+        private void AttackChecking()
+        {
+            if(GamepadController.Ins.CanAttack)
+            {
+                if (wasAttacked) 
+                    return;
+                ChangeState(PlayerAnimState.HammerAttack);
+            }    
+            else if(GamepadController.Ins.CanFire)
+            {
+                ChangeState(PlayerAnimState.FireBullet);
             }    
         }    
+        private void OnAirToWater()
+        {
+            if (obstacleChecker.IsOnWater)
+            {
+                m_rb.velocity = new Vector2(0f, m_rb.velocity.y);
+                WaterChecking();
+            }
+        }    
+        private void JumpChecking()
+        {
+            if(GamepadController.Ins.CanJump)
+            {
+                Jump();
+                ChangeState(PlayerAnimState.Jump);
+            }
+        }    
         #region FSM
+
+        #region SayHi_State
         void SayHi_Enter() { }
         void SayHi_Update() 
         {
             Helper.PlayAnim(m_anim, PlayerAnimState.SayHi.ToString());
         }
         void SayHi_Exit() { }
+        #endregion
+
+        #region Walk_State
         void Walk_Enter() {
             ActiveColider(PlayerCollider.Default);
             m_curSpeed = stat.moveSpeed;
         }
         void Walk_Update() {
             HorizontalMove();
-            if(!GamepadController.Ins.CanMoveLeft&&!GamepadController.Ins.CanMoveRight)
+            JumpChecking();
+            if (!GamepadController.Ins.CanMoveLeft && !GamepadController.Ins.CanMoveRight)
             {
                 ChangeState(PlayerAnimState.Idle);
             }
-            if(GamepadController.Ins.CanJump)
+                
+            if(!obstacleChecker.IsOnGround)
             {
-                Jump();
-                ChangeState(PlayerAnimState.Jump);
+                ChangeState(PlayerAnimState.Onair);
             }    
             Helper.PlayAnim(m_anim, PlayerAnimState.Walk.ToString());
         }
         void Walk_Exit() { }
+        #endregion
+
+        #region Jump_State
         void Jump_Enter() {
             ActiveColider(PlayerCollider.Default);
         }
         void Jump_Update() {
             m_rb.isKinematic = false;
-            if(m_rb.velocity.y<0 && !obstacleChecker.IsOnGround)
+            if((m_rb.velocity.y<0 && !obstacleChecker.IsOnGround)||m_rb.velocity.y==0)
             {   
                 ChangeState(PlayerAnimState.Onair);
             }
@@ -220,6 +278,9 @@ namespace PhucLH.AdventureGame
             Helper.PlayAnim(m_anim, PlayerAnimState.Jump.ToString());
         }
         void Jump_Exit() { }
+        #endregion
+
+        #region Onair_State
         void Onair_Enter() {
     
             ActiveColider(PlayerCollider.Default);
@@ -235,9 +296,13 @@ namespace PhucLH.AdventureGame
             {
                 ChangeState(PlayerAnimState.Fly);
             }
+            OnAirToWater();
             Helper.PlayAnim(m_anim, PlayerAnimState.Onair.ToString());
         }
         void Onair_Exit() { }
+        #endregion
+
+        #region Land_State
         void Land_Enter() {
             ActiveColider(PlayerCollider.Default);
             ChangeStateDelay(PlayerAnimState.Idle);
@@ -247,62 +312,114 @@ namespace PhucLH.AdventureGame
             Helper.PlayAnim(m_anim, PlayerAnimState.Land.ToString());
         }
         void Land_Exit() { }
-        void Swim_Enter() { }
+        #endregion
+
+        #region Swim_State
+        void Swim_Enter() {
+            m_curSpeed = currentStat.swimSpeed;
+            ActiveColider(PlayerCollider.InWater);
+        }
         void Swim_Update() {
+            JumpChecking();
+            GamepadController.Ins.CanFly = false;
+            WaterChecking();
+            HorizontalMove();
+            VerticalMove();
             Helper.PlayAnim(m_anim, PlayerAnimState.Swim.ToString());
         }
-        void Swim_Exit() { }
-        void FireBullet_Enter() { }
-        void FireBullet_Update() {
+        void Swim_Exit() {
+            waterFallingTime = 1f;
+        }
+        #endregion
+
+        #region FireBullet_State
+        void FireBullet_Enter() {
+            ChangeStateDelay(PlayerAnimState.Idle);
+        }
+        void FireBullet_Update()
+        {
+            m_rb.velocity = Vector2.zero;
             Helper.PlayAnim(m_anim, PlayerAnimState.FireBullet.ToString());
         }
         void FireBullet_Exit() { }
-        void Fly_Enter() {
+        #endregion
+
+        #region Fly_State
+        void Fly_Enter()
+        {
             ActiveColider(PlayerCollider.Flying);
             ChangeStateDelay(PlayerAnimState.FlyOnAir);
         }
-        void Fly_Update() {
+        void Fly_Update()
+        {
             HorizontalMove();
-            m_rb.velocity = new Vector2(m_rb.velocity.x,-currentStat.flyingSpeed);
+            OnAirToWater();
+            m_rb.velocity = new Vector2(m_rb.velocity.x, -currentStat.flyingSpeed);
             Helper.PlayAnim(m_anim, PlayerAnimState.Fly.ToString());
         }
         void Fly_Exit() { }
-        void FlyOnAir_Enter() {
+        #endregion
+
+        #region FlyOnAir_State
+        void FlyOnAir_Enter()
+        {
             ActiveColider(PlayerCollider.Flying);
         }
-        void FlyOnAir_Update() {
+        void FlyOnAir_Update()
+        {
             HorizontalMove();
+            OnAirToWater();
             m_rb.velocity = new Vector2(m_rb.velocity.x, -currentStat.flyingSpeed);
-            if(!GamepadController.Ins.CanFly)
+            if (!GamepadController.Ins.CanFly)
             {
                 ChangeState(PlayerAnimState.Onair);
             }
-            if(obstacleChecker.IsOnGround)
+            if (obstacleChecker.IsOnGround)
             {
                 ChangeState(PlayerAnimState.Land);
             }
             Helper.PlayAnim(m_anim, PlayerAnimState.FlyOnAir.ToString());
         }
         void FlyOnAir_Exit() { }
-        void SwimOnDeep_Enter() { }
-        void SwimOnDeep_Update() {
+        #endregion
+
+        #region SwimOnDeep_State
+        void SwimOnDeep_Enter() {
+            ActiveColider(PlayerCollider.InWater);
+            m_curSpeed = currentStat.swimSpeed;
+            //m_rb.velocity = Vector2.zero;
+        }
+        void SwimOnDeep_Update()
+        {
+            GamepadController.Ins.CanFly = false;
+            WaterChecking();
+            HorizontalMove();
+            VerticalMove();
             Helper.PlayAnim(m_anim, PlayerAnimState.SwimOnDeep.ToString());
         }
-        void SwimOnDeep_Exit() { }
-        void OnLadder_Enter() {
+        void SwimOnDeep_Exit() {
+            m_rb.velocity = Vector2.zero;
+            GamepadController.Ins.CanMoveUp = false;
+        }
+        #endregion
+
+        #region OnLadder_State
+        void OnLadder_Enter()
+        {
             ActiveColider(PlayerCollider.Default);
             m_rb.velocity = Vector2.zero;
 
         }
-        void OnLadder_Update() {
+        void OnLadder_Update()
+        {
             VerticalMove();
             HorizontalMove();
-            if(!GamepadController.Ins.CanMoveDown && !GamepadController.Ins.CanMoveUp)
+            if (!GamepadController.Ins.CanMoveDown && !GamepadController.Ins.CanMoveUp)
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x, 0f);
                 ChangeState(PlayerAnimState.LadderIIdle);
             }
-            if(!obstacleChecker.IsOnLadder)
+            if (!obstacleChecker.IsOnLadder)
             {
                 ChangeState(PlayerAnimState.Onair);
             }
@@ -311,57 +428,84 @@ namespace PhucLH.AdventureGame
             Helper.PlayAnim(m_anim, PlayerAnimState.OnLadder.ToString());
         }
         void OnLadder_Exit() { }
+        #endregion
+
+        #region Dead_State
         void Dead_Enter() { }
-        void Dead_Update() {
+        void Dead_Update()
+        {
             Helper.PlayAnim(m_anim, PlayerAnimState.Dead.ToString());
         }
         void Dead_Exit() { }
-        void Idle_Enter() {
+        #endregion
+
+        #region Idle_State
+        void Idle_Enter()
+        {
             ActiveColider(PlayerCollider.Default);
         }
-        void Idle_Update() {
-            if (GamepadController.Ins.CanJump)
-            {
-                Jump();
-                ChangeState(PlayerAnimState.Jump);
-            }
-            if(GamepadController.Ins.CanMoveLeft|| GamepadController.Ins.CanMoveRight)
+        void Idle_Update()
+        {
+            JumpChecking();
+            if (GamepadController.Ins.CanMoveLeft || GamepadController.Ins.CanMoveRight)
             {
                 ChangeState(PlayerAnimState.Walk);
-            }    
+            }
+            if (!obstacleChecker.IsOnGround)
+            {
+                ChangeState(PlayerAnimState.Onair);
+            }
             Helper.PlayAnim(m_anim, PlayerAnimState.Idle.ToString());
         }
         void Idle_Exit() { }
-        void LadderIIdle_Enter() {
+        #endregion
+
+        #region LadderIdle_State
+        void LadderIIdle_Enter()
+        {
             m_rb.velocity = Vector2.zero;
             ActiveColider(PlayerCollider.Default);
             m_curSpeed = currentStat.ladderSpeed;
         }
-        void LadderIIdle_Update() {
-            if(GamepadController.Ins.CanMoveDown|| GamepadController.Ins.CanMoveUp)
+        void LadderIIdle_Update()
+        {
+            HorizontalMove();
+            if (GamepadController.Ins.CanMoveDown || GamepadController.Ins.CanMoveUp)
             {
                 ChangeState(PlayerAnimState.OnLadder);
             }
-            if(!obstacleChecker.IsOnLadder)
+            if (!obstacleChecker.IsOnLadder)
             {
                 ChangeState(PlayerAnimState.Onair);
             }
             GamepadController.Ins.CanFly = false;
             m_rb.gravityScale = 0;
-            HorizontalMove();
             Helper.PlayAnim(m_anim, PlayerAnimState.LadderIIdle.ToString());
         }
         void LadderIIdle_Exit() { }
-        void HammerAttack_Enter() { }
-        void HammerAttack_Update() {
+        #endregion
+
+        #region HammerAttack_State
+        void HammerAttack_Enter() {
+            wasAttacked = true;
+            ChangeStateDelay(PlayerAnimState.Idle);
+        }
+        void HammerAttack_Update()
+        {
+            m_rb.velocity = Vector2.zero;
             Helper.PlayAnim(m_anim, PlayerAnimState.HammerAttack.ToString());
         }
         void HammerAttack_Exit() { }
+        #endregion
+
+        #region GotHit_State
         void GotHit_Enter() { }
-        void GotHit_Update() {
+        void GotHit_Update()
+        {
             Helper.PlayAnim(m_anim, PlayerAnimState.GotHit.ToString());
         }
         void GotHit_Exit() { }
+        #endregion
 
         #endregion
     }
