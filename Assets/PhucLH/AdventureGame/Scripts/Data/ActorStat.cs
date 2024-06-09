@@ -8,7 +8,7 @@ namespace PhucLH.AdventureGame
     {
         [Header("Common")]
         public int hp;
-        public int moveSpeed;
+        public float moveSpeed;
         public int Damage;
 
         [Header("Invincible")]

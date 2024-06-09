@@ -60,7 +60,7 @@ namespace PhucLH.AdventureGame
             {
                 fsm.ChangeState(EnemyAnimState.Moving);
             }
-            if(m_rb.velocity.y<-50)
+            if (m_rb.velocity.y < -50)
             {
                 Dead();
             }
@@ -72,9 +72,9 @@ namespace PhucLH.AdventureGame
             Move();
         }
 
-        public void Move()
+        public virtual void Move()
         {
-            throw new NotImplementedException();
+           
         }
 
         protected override void Dead()
