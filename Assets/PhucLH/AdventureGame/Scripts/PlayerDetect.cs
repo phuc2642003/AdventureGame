@@ -20,7 +20,7 @@ namespace PhucLH.AdventureGame
         public Vector2 DirectionToTarget { get => directionToTarget; }
         public bool IsDetected { get => isDetected; }
 
-        private void Awake()
+        private void Start()
         {
             target = GameManager.Ins.player;
         }

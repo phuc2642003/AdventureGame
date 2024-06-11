@@ -18,4 +18,4 @@ MonoBehaviour:
   knockBackTime: 0
   knockBackForce: 0
   invincibleTime: 0
-  chasingSpeed: 2
+  chasingSpeed: 5

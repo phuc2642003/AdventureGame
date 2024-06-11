@@ -34,7 +34,7 @@ namespace PhucLH.AdventureGame
         }
         private void FixedUpdate()
         {
-            //if (!isAuto) return;
+            if (!isAuto) return;
             Move();
             SwitchDirectionChecking();
         }
@@ -60,7 +60,7 @@ namespace PhucLH.AdventureGame
         {
             float distance1 = Vector2.Distance(startPosition, transform.position);
             float distance2 = Vector2.Distance(startPosition, destination); 
-            return distance1> distance2;
+            return distance1> movingDistance;
         }
         public void SwitchDirection(Vector2 direct)
         {
@@ -77,6 +77,7 @@ namespace PhucLH.AdventureGame
         {
             if(IsReachToDest())
             {
+                Debug.Log(destination.x);
                 SwitchDirection(backDirection);
                 GetMovingDestination();
             }   

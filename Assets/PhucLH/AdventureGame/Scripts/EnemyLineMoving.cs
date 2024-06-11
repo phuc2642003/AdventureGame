@@ -34,6 +34,7 @@ namespace PhucLH.AdventureGame
             base.Moving_Update();
             targetDirection = lineMoving.BackDirection;
             lineMoving.speed = m_curSpeed ;
+            lineMoving.SwitchDirectionChecking();
         }
         protected override void Chasing_Enter()
         {

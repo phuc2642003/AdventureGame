@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4266426486542118926}
@@ -117,6 +117,9 @@ GameObject:
   - component: {fileID: 4266426486542118926}
   - component: {fileID: -8116371077902040253}
   - component: {fileID: 3496576808502717513}
+  - component: {fileID: 1583892214114151023}
+  - component: {fileID: 6052375580717248952}
+  - component: {fileID: 6502319705748405480}
   m_Layer: 0
   m_Name: PurpleDinosaur
   m_TagString: Untagged
@@ -166,7 +169,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3496576808502717513
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,3 +205,58 @@ CapsuleCollider2D:
   m_Offset: {x: -0.14137816, y: -0.064798355}
   m_Size: {x: 1.3718319, y: 2.1428065}
   m_Direction: 0
+--- !u!114 &1583892214114151023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749739413036582171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab25dd7c483fca4c911fa494594994f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: 1
+  movingDistance: 4
+  speed: 0
+  isOnlyUp: 0
+  isAuto: 0
+--- !u!114 &6052375580717248952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749739413036582171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364d93d24900cd445853a97a1e5f1eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 82917abfde1d8754c80fce77b6155fac, type: 2}
+  normalLayer: 11
+  invincibleLayer: 9
+  deadLayer: 10
+  m_anim: {fileID: 4297634660293951587}
+  flashVfx: {fileID: 0}
+  deadVfxPb: {fileID: 0}
+  movingDistance: 0
+--- !u!114 &6502319705748405480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749739413036582171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93b9a3fff50cf64f9b52d7e9a96dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+  detectMethod: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectDistance: 3
