@@ -61,6 +61,10 @@ namespace PhucLH.AdventureGame
             if(!m_isKnockBack)
             {
                 fsm.ChangeState(EnemyAnimState.Moving);
+            } 
+            else
+            {
+                KnockBackMove(0.55f);
             }    
         }
         #endregion

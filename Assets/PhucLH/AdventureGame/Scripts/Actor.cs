@@ -118,22 +118,20 @@ namespace PhucLH.AdventureGame
 
         protected void KnockBackMove(float yRate)
         {
-            if (m_whoHit == null)
+            if(m_whoHit == null)
             {
                 m_vertDir = m_vertDir == 0 ? 1 : m_vertDir;
-                m_rb.velocity = new Vector2(
-                    m_hozDir * -stat.knockBackForce,
-                    (m_vertDir * 0.55f) * stat.knockBackForce);
+                m_rb.velocity = new Vector2(m_hozDir * stat.knockBackForce, 0.55f * m_vertDir * stat.knockBackForce);
             }
             else
             {
-                Vector2 dir = m_whoHit.transform.position - transform.position;
-                dir.Normalize();
-                if (dir.x > 0)
+                Vector2 hiterToActor = m_whoHit.transform.position - transform.position;
+                hiterToActor.Normalize();
+                if(hiterToActor.x>0)
                 {
                     m_rb.velocity = new Vector2(-stat.knockBackForce, yRate * stat.knockBackForce);
                 }
-                else if (dir.x < 0)
+                else if(hiterToActor.x<0)
                 {
                     m_rb.velocity = new Vector2(stat.knockBackForce, yRate * stat.knockBackForce);
                 }

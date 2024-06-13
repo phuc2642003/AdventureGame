@@ -100,7 +100,7 @@ namespace PhucLH.AdventureGame
         {
             if (m_isKnockBack)
             {
-
+                KnockBackMove(targetDirection.y);
             }    
             else
             {

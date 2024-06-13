@@ -125,7 +125,9 @@ namespace PhucLH.AdventureGame
         protected override void Dead()
         {
             base.Dead();
+            if (IsDead) return;
 
+            ChangeState(PlayerAnimState.Dead);
         }
         private void Move(Direction direction)
         {
@@ -158,12 +160,10 @@ namespace PhucLH.AdventureGame
             if (GamepadController.Ins.CanMoveLeft)
             {
                 Move(Direction.Left);
-                Debug.Log("left");
             }
             else if (GamepadController.Ins.CanMoveRight)
             {
                 Move(Direction.Right);
-                Debug.Log("right");
             }
         } 
         private void VerticalMove()
@@ -230,7 +230,28 @@ namespace PhucLH.AdventureGame
                 Jump();
                 ChangeState(PlayerAnimState.Jump);
             }
-        }    
+        }
+        public override void TakeDamage(int dmg, Actor whoHit = null)
+        {
+            if (IsDead) return;
+            base.TakeDamage(dmg, whoHit);
+
+            if(m_curHp>0 && !m_isInvincible)
+            {
+                ChangeState(PlayerAnimState.GotHit);
+            }
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.CompareTag(GameTag.Enemy.ToString()))
+            {
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                if(enemy)
+                {
+                    TakeDamage(enemy.stat.Damage, enemy);
+                }
+            }
+        }
         #region FSM
 
         #region SayHi_State
@@ -502,7 +523,18 @@ namespace PhucLH.AdventureGame
         void GotHit_Enter() { }
         void GotHit_Update()
         {
-            Helper.PlayAnim(m_anim, PlayerAnimState.GotHit.ToString());
+            if(m_isKnockBack)
+            {
+                KnockBackMove(0.25f);
+            }
+            else if(obstacleChecker.IsOnWater)
+            {
+                ChangeState(previousState);
+            }
+            else
+            {
+                ChangeState(PlayerAnimState.Idle);
+            }
         }
         void GotHit_Exit() { }
         #endregion

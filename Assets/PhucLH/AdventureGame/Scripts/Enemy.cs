@@ -89,6 +89,7 @@ namespace PhucLH.AdventureGame
         }
         public override void TakeDamage(int dmg, Actor whoHit = null)
         {
+            if (IsDead) return;
             base.TakeDamage(dmg, whoHit);
             if (m_curHp > 0 && !m_isInvincible)
             {

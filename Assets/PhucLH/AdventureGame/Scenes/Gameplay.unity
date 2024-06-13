@@ -820,7 +820,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8827773452399850212, guid: f57ed15dec078e7429def3dfad6c4e5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1837876754}
   m_SourcePrefab: {fileID: 100100000, guid: f57ed15dec078e7429def3dfad6c4e5d, type: 3}
 --- !u!1 &1015137423
 GameObject:
@@ -1290,6 +1293,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0555556, y: 1.1666666}
   m_EdgeRadius: 0
+--- !u!1 &1837876752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8827773452399850212, guid: f57ed15dec078e7429def3dfad6c4e5d, type: 3}
+  m_PrefabInstance: {fileID: 989303475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1837876754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837876752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5477225f2a28e2d4189406209f05bb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  attackRadius: 0.5
+  offset: {x: 0.75, y: -0.5, z: 0}
+  player: {fileID: 1234810325}
 --- !u!1 &2033746760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,13 +1378,17 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 601825367813632183, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1370867708464704751, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1370867708464704751, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1370867708464704751, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1395,6 +1425,14 @@ PrefabInstance:
     - target: {fileID: 5279799531678164768, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
       propertyPath: m_Name
       value: HorizontalFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5279799531678164768, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5279799531678164768, guid: cecffdc667b4eee42bab453f1442c0b4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
