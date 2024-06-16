@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4133099819832068488}
   - component: {fileID: 6728693000369848140}
   - component: {fileID: 8529997453046662071}
-  m_Layer: 0
+  - component: {fileID: -2932670583207079082}
+  - component: {fileID: -2770844564231387357}
+  m_Layer: 6
   m_Name: MovingPlatform_Brown
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,11 +93,47 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.015414025, y: 0.1942596}
   m_Size: {x: 3.0351186, y: 0.84584785}
   m_Direction: 1
+--- !u!251 &-2932670583207079082
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4777218684912986167}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!114 &-2770844564231387357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4777218684912986167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab25dd7c483fca4c911fa494594994f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: 1
+  movingDistance: 3
+  speed: 3
+  isOnlyUp: 0
+  isAuto: 1
 --- !u!1 &8395845402075762463
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2282947495723318482}
   - component: {fileID: 1144807232813588616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}

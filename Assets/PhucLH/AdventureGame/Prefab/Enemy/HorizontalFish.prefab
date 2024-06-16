@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6960829351138524482}
   - component: {fileID: 7555916932936682446}
   - component: {fileID: 5372900598737295325}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,11 +115,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1370867708464704751}
+  - component: {fileID: 3585686861265486860}
   - component: {fileID: -7075301955312282467}
   - component: {fileID: -8953334365819094299}
-  m_Layer: 0
+  - component: {fileID: 7383822186513429233}
+  - component: {fileID: 9072943412614197518}
+  m_Layer: 11
   m_Name: HorizontalFish
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +143,27 @@ Transform:
   - {fileID: 6960829351138524482}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3585686861265486860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279799531678164768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bf37c58cf485b4dad9b4ff52297845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 82917abfde1d8754c80fce77b6155fac, type: 2}
+  normalLayer: 11
+  invincibleLayer: 9
+  deadLayer: 10
+  m_anim: {fileID: 5372900598737295325}
+  flashVfx: {fileID: 0}
+  deadVfxPb: {fileID: 0}
+  movingDistance: 3
+  canRotate: 0
 --- !u!50 &-7075301955312282467
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +172,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5279799531678164768}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -166,7 +190,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &-8953334365819094299
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,3 +226,40 @@ CapsuleCollider2D:
   m_Offset: {x: -0.2124007, y: -0.020122148}
   m_Size: {x: 1.4963526, y: 1.1565145}
   m_Direction: 1
+--- !u!114 &7383822186513429233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279799531678164768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93b9a3fff50cf64f9b52d7e9a96dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+  detectMethod: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectDistance: 4
+--- !u!114 &9072943412614197518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279799531678164768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []

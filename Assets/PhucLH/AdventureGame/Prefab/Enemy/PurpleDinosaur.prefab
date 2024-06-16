@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2085665975996755191}
   - component: {fileID: 1305312549905266707}
   - component: {fileID: 4297634660293951587}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,9 +120,10 @@ GameObject:
   - component: {fileID: 1583892214114151023}
   - component: {fileID: 6052375580717248952}
   - component: {fileID: 6502319705748405480}
-  m_Layer: 0
+  - component: {fileID: -6308550808968564894}
+  m_Layer: 11
   m_Name: PurpleDinosaur
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,3 +261,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   detectDistance: 3
+--- !u!114 &-6308550808968564894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749739413036582171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []

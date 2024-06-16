@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 6637223904777302503}
   - component: {fileID: 7739982445498434849}
   - component: {fileID: 4079756652578230021}
+  - component: {fileID: 360012708360378972}
   m_Layer: 0
   m_Name: OrangeDinosaur
   m_TagString: Untagged
@@ -202,3 +203,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.14137816, y: -0.064798355}
   m_Size: {x: 1.3718319, y: 2.1428065}
   m_Direction: 0
+--- !u!114 &360012708360378972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924325549360699462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []

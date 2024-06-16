@@ -8,18 +8,25 @@ namespace PhucLH.AdventureGame
     {
         public Player player;
         public Transform firePoint;
-        public Bullet bulletPb;
-
-        private float currentSpeed;
-
         public void Fire()
         {
-            if (!bulletPb || !player || !firePoint) return;
-
-            currentSpeed = player.IsFacingLeft ? -bulletPb.speed : bulletPb.speed;
-            var bulletClone = Instantiate(bulletPb, firePoint.position, Quaternion.identity);
-            bulletClone.speed = currentSpeed;
-            bulletClone.owner = player;
+            if (!player || !firePoint) return;
+            var bulletObject = BulletPooler.Ins.GetPooledBullet();
+            if(bulletObject!=null)
+            {
+                bulletObject.transform.position = firePoint.position;
+                bulletObject.SetActive(true);
+                Bullet bullet = bulletObject.GetComponent<Bullet>();
+                if(bullet.speed>0)
+                {
+                    bullet.speed = player.IsFacingLeft ? -bullet.speed : bullet.speed;
+                }    
+                else
+                {
+                    bullet.speed = player.IsFacingLeft ? bullet.speed : -bullet.speed;
+                }    
+                bullet.owner = player;
+            }  
         }
     }
 }

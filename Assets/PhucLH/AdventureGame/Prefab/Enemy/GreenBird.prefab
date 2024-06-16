@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4049181738206312041}
   - component: {fileID: 7006917852213431640}
   - component: {fileID: -545824276126247724}
+  - component: {fileID: -4193174826911785443}
   m_Layer: 0
   m_Name: GreenBird
   m_TagString: Untagged
@@ -96,6 +97,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.1149984, y: 0.12605378}
   m_Size: {x: 1.6369103, y: 1.1371346}
   m_Direction: 1
+--- !u!114 &-4193174826911785443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432622067122031325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7031185689949401068
 GameObject:
   m_ObjectHideFlags: 0

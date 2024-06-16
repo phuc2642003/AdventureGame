@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 5104885426013958926}
   - component: {fileID: 5437015196338201295}
   - component: {fileID: 6810378543281357595}
+  - component: {fileID: 2743118035640900392}
   m_Layer: 0
   m_Name: VerticalFish
   m_TagString: Untagged
@@ -202,3 +203,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0066387653, y: 0.17260796}
   m_Size: {x: 1.1505995, y: 1.4602879}
   m_Direction: 0
+--- !u!114 &2743118035640900392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247164236510721793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []

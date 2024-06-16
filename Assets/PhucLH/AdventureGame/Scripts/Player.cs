@@ -251,6 +251,65 @@ namespace PhucLH.AdventureGame
                     TakeDamage(enemy.stat.Damage, enemy);
                 }
             }
+            if(collision.gameObject.CompareTag(GameTag.MovingPlatform.ToString()))
+            {
+                m_rb.isKinematic = true;
+                transform.SetParent(collision.gameObject.transform);
+            }
+
+        }
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag(GameTag.MovingPlatform.ToString()))
+            {
+                if(obstacleChecker.IsOnGround && fsm.State == PlayerAnimState.Idle)
+                {
+                    m_rb.isKinematic = true;
+                    transform.SetParent(collision.gameObject.transform);
+                }    
+            }
+        }
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag(GameTag.MovingPlatform.ToString()))
+            {
+                if(!obstacleChecker.IsOnGround)
+                {
+                    m_rb.isKinematic = false;
+                    transform.SetParent(null);
+                }
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.CompareTag(GameTag.Thorn.ToString()))
+            {
+                TakeDamage(1);
+            }
+            if(collision.CompareTag(GameTag.CheckPoint.ToString()))
+            {
+                //save data for player
+            }
+            if(collision.CompareTag(GameTag.Collectable.ToString()))
+            {
+                //Collect collectable items for player
+                Collectable collectable = collision.GetComponent<Collectable>();
+                if(collectable!=null)
+                {
+                    collectable.Trigger();
+                }    
+            }
+            if(collision.CompareTag(GameTag.Door.ToString()))
+            {
+                //
+            }
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if(collision.CompareTag(GameTag.DeadZone.ToString()))
+            {
+                Dead();
+            }
         }
         #region FSM
 

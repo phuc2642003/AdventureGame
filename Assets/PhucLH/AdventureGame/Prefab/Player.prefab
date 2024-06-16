@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1532123007574361548}
   - component: {fileID: 1760330457857138964}
   - component: {fileID: 2694995479963802016}
+  - component: {fileID: 3014969409800323754}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -186,15 +187,35 @@ MonoBehaviour:
   invincibleLayer: 9
   deadLayer: 10
   m_anim: {fileID: 8294944779095902891}
-  flashVfx: {fileID: 0}
+  flashVfx: {fileID: 3014969409800323754}
   deadVfxPb: {fileID: 0}
   jumpingFallingMultipler: 2.5
   lowJumpingMultipler: 2.5
-  sp: {fileID: 0}
+  sp: {fileID: 5990746372863200519}
   obstacleChecker: {fileID: 9076122404695583943}
   defaultColider: {fileID: 3671847451878340591}
   flyingColider: {fileID: 1532123007574361548}
   inWaterColider: {fileID: 1760330457857138964}
+--- !u!114 &3014969409800323754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352294751873763659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 5990746372863200519}
+  flashRate: 0.1
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 1, g: 0.4292453, b: 0.4292453, a: 0.627451}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &365113477248402102
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +273,37 @@ MonoBehaviour:
   deepWaterCheckingDistance: 0.1
   offSet: {x: 0, y: -1, z: 0}
   deepWaterOffSet: {x: 0, y: 0.45, z: 0}
+--- !u!1 &446990626100327371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534830995581169654}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &534830995581169654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446990626100327371}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.85, y: -0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1955609021627398514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8827773452399850212
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +315,8 @@ GameObject:
   - component: {fileID: 1955609021627398514}
   - component: {fileID: 5990746372863200519}
   - component: {fileID: 8294944779095902891}
+  - component: {fileID: 2016719580255218769}
+  - component: {fileID: 4249691702593788782}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -284,6 +338,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8867083565734557917}
+  - {fileID: 534830995581169654}
   m_Father: {fileID: 597867863099343228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5990746372863200519
@@ -359,3 +414,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2016719580255218769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827773452399850212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5477225f2a28e2d4189406209f05bb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  attackRadius: 0.5
+  offset: {x: 0.75, y: -0.5, z: 0}
+  player: {fileID: 2694995479963802016}
+--- !u!114 &4249691702593788782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827773452399850212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef69b22a17508c428fe43683862cd14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2694995479963802016}
+  firePoint: {fileID: 534830995581169654}

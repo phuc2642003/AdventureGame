@@ -77,7 +77,6 @@ namespace PhucLH.AdventureGame
         {
             if(IsReachToDest())
             {
-                Debug.Log(destination.x);
                 SwitchDirection(backDirection);
                 GetMovingDestination();
             }   

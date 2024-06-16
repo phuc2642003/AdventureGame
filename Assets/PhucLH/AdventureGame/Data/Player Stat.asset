@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   moveSpeed: 5
-  Damage: 5
+  Damage: 1
   knockBackTime: 0.2
   knockBackForce: 4
   invincibleTime: 0.8
-  jumpForce: 11
+  jumpForce: 15
   flyingSpeed: 1.5
   ladderSpeed: 2
   swimSpeed: 4

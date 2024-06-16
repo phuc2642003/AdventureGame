@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 5052034860294087044}
   - component: {fileID: -8426492423483964618}
   - component: {fileID: -2631440407888187855}
+  - component: {fileID: -3442552098840009250}
   m_Layer: 0
   m_Name: PurpleBat
   m_TagString: Untagged
@@ -202,3 +203,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.31416965, y: -0.32949507}
   m_Size: {x: 1.3122435, y: 1.3122435}
   m_Direction: 0
+--- !u!114 &-3442552098840009250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251857027124046722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []

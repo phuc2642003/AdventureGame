@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1633716958141412195}
   - component: {fileID: -610139566290450479}
   - component: {fileID: 8867024991843959549}
+  - component: {fileID: -4964202009922962760}
   m_Layer: 0
   m_Name: BrownBat
   m_TagString: Untagged
@@ -202,3 +203,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.31416965, y: -0.32949507}
   m_Size: {x: 1.3122435, y: 1.3122435}
   m_Direction: 0
+--- !u!114 &-4964202009922962760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2952198928599341859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers: []
+  flashRate: 0
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []
