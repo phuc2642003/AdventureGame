@@ -67,6 +67,15 @@ namespace PhucLH.AdventureGame
         {
             if (IsAttacking || m_isKnockBack) return;
 
+            if(obstacleChecker.IsOnWater || obstacleChecker.IsOnDeepWater)
+            {
+                sp.sortingOrder = (int)SpriteOrder.InWater;
+            }    
+            else
+            {
+                sp.sortingOrder = (int)SpriteOrder.Normal;
+            }    
+
             ActionHandle();
         }
         private void ActionHandle()
@@ -123,10 +132,9 @@ namespace PhucLH.AdventureGame
         }
         
         protected override void Dead()
-        {
-            base.Dead();
+        {         
             if (IsDead) return;
-
+            base.Dead();
             ChangeState(PlayerAnimState.Dead);
         }
         private void Move(Direction direction)
@@ -286,10 +294,10 @@ namespace PhucLH.AdventureGame
             {
                 TakeDamage(1);
             }
-            if(collision.CompareTag(GameTag.CheckPoint.ToString()))
-            {
-                //save data for player
-            }
+            //if(collision.CompareTag(GameTag.CheckPoint.ToString()))
+            //{
+            //    //save data for player
+            //}
             if(collision.CompareTag(GameTag.Collectable.ToString()))
             {
                 //Collect collectable items for player
@@ -511,7 +519,9 @@ namespace PhucLH.AdventureGame
         #endregion
 
         #region Dead_State
-        void Dead_Enter() { }
+        void Dead_Enter() {
+            CamShake.ins.ShakeTrigger(0.7f, 0.1f);
+        }
         void Dead_Update()
         {
             Helper.PlayAnim(m_anim, PlayerAnimState.Dead.ToString());

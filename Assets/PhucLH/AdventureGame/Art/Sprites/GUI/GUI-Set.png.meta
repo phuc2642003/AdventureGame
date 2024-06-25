@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,1141 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GUI-Set_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 846
+        width: 233
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b021f887b4e8d4f9792a704c576c1d
+      internalID: 1713600024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_1
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1018
+        width: 112
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948780e6a7065ae4082a07a672d462a8
+      internalID: -1628749696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_2
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1017
+        width: 112
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e8c8fdaf6e5224a97f4cf1bfd8ca05
+      internalID: 489412316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_3
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1016
+        width: 112
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223263570bbb38148b730741d3ccd916
+      internalID: 652819919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_4
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 908
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aee83aa71ead524885b73776d5c843a
+      internalID: 691751177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_5
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 909
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6beb3724ed436a044bffbab123bc5952
+      internalID: -1396096010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_6
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 910
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16b96d1dce5911428aa479232023f4e
+      internalID: -599717417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 910
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bafb4d22a999d489277e0473b1fc53
+      internalID: -761121056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_8
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 912
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea356b670d52ce489e4ed24d0c6e088
+      internalID: 1224370513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_9
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 912
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f84c4cf1056d845ad52941d3424882
+      internalID: 1587156777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 912
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ec0b9d79fb3e747baa68bd24c12f84
+      internalID: -962400293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_11
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 841
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ddea935698aaf449d5800eda61132f
+      internalID: 158714038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_12
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 837
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4edeb2160d81742a7eeeff10121f07
+      internalID: 1906477917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_13
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 834
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bff6af78f1b92c4e98a96c54abf1879
+      internalID: -1530596931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_14
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 832
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8487bafe79eb3e44835fad7f597d569
+      internalID: -1446296713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_15
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 831
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978db400d24b79147b54a73a3a1a7301
+      internalID: 195951344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_16
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 834
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f666a89d6730e2042bcfe1e86239b5bf
+      internalID: -2082181471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_17
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 834
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce65a13aabc6cc47b05b418a3fcc62a
+      internalID: -663251705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_18
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 496
+        width: 233
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f823fdc7056177f4d987e43933f7bb7a
+      internalID: -1401789615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 769
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04cfd2fdb28ab3b41b1b125d833c0357
+      internalID: -1891381762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_20
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 761
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e527a91e1381c145bd2df6ec259beb1
+      internalID: 1541168616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_21
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 761
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8e38c7432efdf4c88adf1b30d605b2
+      internalID: -193992970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_22
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 758
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881adf665578e0d46ba1fb41d92a45d5
+      internalID: -1366185730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_23
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 752
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a84818905c10b4b968535b9eed4de5
+      internalID: 852411918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_24
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 752
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fd17b054a4adf47ab74716ddde002e
+      internalID: 1287877674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_25
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 752
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f298b54d6244c7147b14bd86c9dfa285
+      internalID: -692714718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_26
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 636
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45ce2bb937d49c43b23ae69206c2cf1
+      internalID: -503706082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_27
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 635
+        width: 81
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0b185a05e70984a8784f49e27a6404
+      internalID: -901471959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_28
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 636
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d9c8c377cd2b245a6b4457b694d84a
+      internalID: -65820988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_29
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 636
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2969593099fba2a418f36f0904565d8e
+      internalID: -1657410530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_30
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 629
+        width: 99
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e8656f6bc2ccb46b6b7824f9207ba2
+      internalID: 321861980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_31
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 526
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22bf045228ea2cf4ab4bac7fc426f388
+      internalID: 780530870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_32
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 528
+        width: 81
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90da1f01812bd964491716fb9aaa1752
+      internalID: 449797200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_33
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 531
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38a7357a153b1c4e8deccc9644daf10
+      internalID: -1465063914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_34
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 529
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0da7d26aedb46e428ed392bb737030b
+      internalID: 122803769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_35
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 415
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d84190afb89184ab3d065f2021bce6
+      internalID: 2092436702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_36
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 430
+        width: 34
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5262757605d99054aad21e97766923c7
+      internalID: 2003517580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_37
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 426
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318744a73948c0749ab3f4f8f803cb21
+      internalID: -79605994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_38
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 452
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ed7c2194fd7ec42b106457a229352a
+      internalID: -314875343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_39
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 458
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c2ab127f2db3d4781809eefdfac553
+      internalID: 1847790324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_40
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 386
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e9777a2abbba14396421528b266c1d
+      internalID: -1481904749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_41
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 385
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2d1282d98e017449d498b0fe7ee23d
+      internalID: 732398419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_42
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 385
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3eb674a6cc15e745908b2f2f0c6f20d
+      internalID: -986391822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_43
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 383
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d72247fb64b24641bf81d05c9246bd8
+      internalID: -779795376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_44
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 319
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75075e8de75b5b343b7c14e3ae8d82e3
+      internalID: -968660784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_45
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 310
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e12e0ea40c6b64bac4f3bb0afae58f
+      internalID: 790182134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_46
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 223
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35822f3d4fb406e4fa3c0cf22401360a
+      internalID: 783386858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_47
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 227
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd18e1993b11ef469ed03f72f50bb4f
+      internalID: -1969126316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_48
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 224
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b40ea99aafa76c4688c8b2876818b8f
+      internalID: -519352963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_49
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 227
+        width: 147
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999cc9cda5a0d9c4ab8b7237ce8e94fc
+      internalID: -281088263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_50
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 229
+        width: 137
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92014f778b76b2347b221935b1c40ddd
+      internalID: 913730173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_51
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 78
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e2368da2718884b80e46d049e23f9c
+      internalID: 1334755103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_52
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 78
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60962572ac4ea614ca4d3b35ee412f80
+      internalID: 2123469782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI-Set_53
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 78
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411d088ce59597e48aa6b8454079b8fb
+      internalID: -1836158730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +1253,61 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GUI-Set_0: 1713600024
+      GUI-Set_1: -1628749696
+      GUI-Set_10: -962400293
+      GUI-Set_11: 158714038
+      GUI-Set_12: 1906477917
+      GUI-Set_13: -1530596931
+      GUI-Set_14: -1446296713
+      GUI-Set_15: 195951344
+      GUI-Set_16: -2082181471
+      GUI-Set_17: -663251705
+      GUI-Set_18: -1401789615
+      GUI-Set_19: -1891381762
+      GUI-Set_2: 489412316
+      GUI-Set_20: 1541168616
+      GUI-Set_21: -193992970
+      GUI-Set_22: -1366185730
+      GUI-Set_23: 852411918
+      GUI-Set_24: 1287877674
+      GUI-Set_25: -692714718
+      GUI-Set_26: -503706082
+      GUI-Set_27: -901471959
+      GUI-Set_28: -65820988
+      GUI-Set_29: -1657410530
+      GUI-Set_3: 652819919
+      GUI-Set_30: 321861980
+      GUI-Set_31: 780530870
+      GUI-Set_32: 449797200
+      GUI-Set_33: -1465063914
+      GUI-Set_34: 122803769
+      GUI-Set_35: 2092436702
+      GUI-Set_36: 2003517580
+      GUI-Set_37: -79605994
+      GUI-Set_38: -314875343
+      GUI-Set_39: 1847790324
+      GUI-Set_4: 691751177
+      GUI-Set_40: -1481904749
+      GUI-Set_41: 732398419
+      GUI-Set_42: -986391822
+      GUI-Set_43: -779795376
+      GUI-Set_44: -968660784
+      GUI-Set_45: 790182134
+      GUI-Set_46: 783386858
+      GUI-Set_47: -1969126316
+      GUI-Set_48: -519352963
+      GUI-Set_49: -281088263
+      GUI-Set_5: -1396096010
+      GUI-Set_50: 913730173
+      GUI-Set_51: 1334755103
+      GUI-Set_52: 2123469782
+      GUI-Set_53: -1836158730
+      GUI-Set_6: -599717417
+      GUI-Set_7: -761121056
+      GUI-Set_8: 1224370513
+      GUI-Set_9: 1587156777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

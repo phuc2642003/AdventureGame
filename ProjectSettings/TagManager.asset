@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Checkpoint
   - MovingPlatform
   - Door
   - Thorn
   - Collectable
-  - Deadzone
+  - CheckPoint
+  - DeadZone
   layers:
   - Default
   - TransparentFX
