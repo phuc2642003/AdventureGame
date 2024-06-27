@@ -76,12 +76,18 @@ namespace PhucLH.AdventureGame
                 sp.sortingOrder = (int)SpriteOrder.Normal;
             }    
 
+            if(IsDead)
+            {
+                GameManager.Ins.SetMapSpeed(0f);
+            }    
+
             ActionHandle();
         }
         private void ActionHandle()
         {
             if(GamepadController.Ins.IsStatic)
             {
+                GameManager.Ins.SetMapSpeed(0f);
                 m_rb.velocity = new Vector2(0, m_rb.velocity.y);
             }    
             if(fsm.State!= PlayerAnimState.OnLadder && fsm.State != PlayerAnimState.LadderIIdle && obstacleChecker.IsOnLadder)
@@ -148,6 +154,15 @@ namespace PhucLH.AdventureGame
                 Flip(direction);
                 m_hozDir =  direction == Direction.Left ? -1 : 1;
                 m_rb.velocity = new Vector2(m_hozDir * m_curSpeed, m_rb.velocity.y);
+
+                if(CameraFollow.ins.IsHozStuck)
+                {
+                    GameManager.Ins.SetMapSpeed(0f);
+                }   
+                else
+                {
+                    GameManager.Ins.SetMapSpeed(-m_hozDir * m_curSpeed);
+                }    
             } 
             else if(direction == Direction.Up || direction== Direction.Down)
             {
