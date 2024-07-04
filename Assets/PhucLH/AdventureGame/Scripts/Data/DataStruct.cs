@@ -102,4 +102,18 @@ namespace PhucLH.AdventureGame
         Key,
         None
     }
+    [System.Serializable]
+    public class LevelItem
+    {
+        public int price;
+        public Sprite previewSprite;
+    }
+    [System.Serializable]
+    public class ShopItem
+    {
+        public CollectableType type;
+        public int price;
+        public Sprite preview;
+    }
+
 }
