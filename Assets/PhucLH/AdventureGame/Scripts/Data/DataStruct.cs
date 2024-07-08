@@ -107,6 +107,7 @@ namespace PhucLH.AdventureGame
     {
         public int price;
         public Sprite previewSprite;
+        public Goal goal;       
     }
     [System.Serializable]
     public class ShopItem
@@ -115,5 +116,27 @@ namespace PhucLH.AdventureGame
         public int price;
         public Sprite preview;
     }
+    [System.Serializable]
+    public class Goal
+    {
+        public int timeToGet1Star;
+        public int timeToGet2Stars;
+        public int timeToGet3Stars;
 
+        public int GetStar(int time)
+        {
+            if(time<=timeToGet3Stars)
+            {
+                return 3;
+            }    
+            else if(time <=timeToGet2Stars)
+            {
+                return 2;
+            }    
+            else
+            {
+                return 1;
+            }
+        }
+    }
 }
