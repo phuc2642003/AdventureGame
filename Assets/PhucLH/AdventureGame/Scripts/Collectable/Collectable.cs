@@ -27,11 +27,18 @@ namespace PhucLH.AdventureGame
 
         public virtual void Init()
         {
-            
+            DestroyWhenLevelPassed();
         }
         protected virtual void TriggerHandle()
         {
 
+        }
+        protected void DestroyWhenLevelPassed()
+        {
+            if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId))
+            {
+                Destroy(gameObject);
+            }
         }
         public void Trigger()
         {

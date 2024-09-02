@@ -6,16 +6,10 @@ namespace PhucLH.AdventureGame
 {
     public class CoinCollectable : Collectable
     {
-        // Start is called before the first frame update
-        void Start()
+        protected override void TriggerHandle()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            base.TriggerHandle();
+            GameManager.Ins.AddCoins(bonus);
         }
     }
 

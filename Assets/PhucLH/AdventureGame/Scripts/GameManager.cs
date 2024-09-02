@@ -37,7 +37,11 @@ namespace PhucLH.AdventureGame
             fsm = StateMachine<GameState>.Initialize(this);
             fsm.ChangeState(GameState.Playing);
         }
-
+        private void Start()
+        {
+            LoadData();
+            StartCoroutine(CamFollowDelay());
+        }
         private void LoadData()
         {
             currentLive = setting.startingLive;
@@ -94,6 +98,56 @@ namespace PhucLH.AdventureGame
         {
             SceneController.Ins.LoadLevelScene(LevelManager.Ins.CurrentLevelId);
         }    
+        public void NextLevel()
+        {
+            LevelManager.Ins.CurrentLevelId++;
+            if(LevelManager.Ins.CurrentLevelId>=SceneManager.sceneCountInBuildSettings -1)
+            {
+                SceneController.Ins.LoadScene(GameScene.MainMenu.ToString());
+            }    
+            else
+            {
+                SceneController.Ins.LoadLevelScene(LevelManager.Ins.CurrentLevelId);
+            }    
+        }   
+        public void SaveCheckPoint()
+        {
+            GameData.Ins.UpdatePlayTime(LevelManager.Ins.CurrentLevelId, playTime);
+            GameData.Ins.UpdateCheckedPoint(LevelManager.Ins.CurrentLevelId, new Vector3(
+                player.transform.position.x - 0.5f,
+                player.transform.position.y + 0.5f,
+                player.transform.position.z
+                ));
+            GameData.Ins.SaveData();
+        }  
+        
+        public void Gameover()
+        {
+            fsm.ChangeState(GameState.LevelFail);
+        }
+        public void LevelFailed()
+        {
+            fsm.ChangeState(GameState.LevelFail);
+            GameData.Ins.UpdateLevelScored(LevelManager.Ins.CurrentLevelId,
+                Mathf.RoundToInt(playTime));
+
+            GameData.Ins.SaveData();
+        }
+        public void LevelClear()
+        {
+            fsm.ChangeState(GameState.LevelClear);
+            GameData.Ins.UpdateLevelScored(LevelManager.Ins.CurrentLevelId,
+                Mathf.RoundToInt(playTime));
+            goalStar = LevelManager.Ins.GetLevel.goal.GetStar(Mathf.RoundToInt(playTime));
+            GameData.Ins.SaveData();
+
+        }
+        private IEnumerator CamFollowDelay()
+        {
+            yield return new WaitForSeconds(0.3f);
+            CameraFollow.ins.target = player.transform;
+        }
+
         public void SetMapSpeed(float speed)
         {
             if(map)
@@ -106,7 +160,11 @@ namespace PhucLH.AdventureGame
         protected void Starting_Update() { }
         protected void Starting_Exit() { }
         protected void Playing_Enter() { }
-        protected void Playing_Update() { }
+        protected void Playing_Update() {
+            if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId)) return;
+
+            playTime += Time.deltaTime;
+        }
         protected void Playing_Exit() { }
         protected void LevelClear_Enter() { }
         protected void LevelClear_Update() { }

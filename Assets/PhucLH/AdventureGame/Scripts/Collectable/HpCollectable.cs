@@ -6,16 +6,13 @@ namespace PhucLH.AdventureGame
 {
     public class HpCollectable : Collectable
     {
-        // Start is called before the first frame update
-        void Start()
+        protected override void TriggerHandle()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            base.TriggerHandle();
+            player.CurHp += bonus;
+            GameData.Ins.hp = player.CurHp;
+            GameData.Ins.SaveData();
+            //UpdateGameGUI
         }
     }
 

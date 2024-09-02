@@ -258,7 +258,8 @@ namespace PhucLH.AdventureGame
         {
             if (IsDead) return;
             base.TakeDamage(dmg, whoHit);
-
+            GameData.Ins.hp = CurHp;
+            GameData.Ins.SaveData();
             if(m_curHp>0 && !m_isInvincible)
             {
                 ChangeState(PlayerAnimState.GotHit);

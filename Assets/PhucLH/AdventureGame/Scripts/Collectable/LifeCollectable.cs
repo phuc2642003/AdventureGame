@@ -6,16 +6,12 @@ namespace PhucLH.AdventureGame
 {
     public class LifeCollectable : Collectable
     {
-        // Start is called before the first frame update
-        void Start()
+        protected override void TriggerHandle()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            base.TriggerHandle();
+            GameManager.Ins.CurrentLive += bonus;
+            GameData.Ins.live = GameManager.Ins.CurrentLive;
+            GameData.Ins.SaveData();
         }
     }
 

@@ -449,6 +449,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87045691}
   m_CullTransparentMesh: 1
+--- !u!1 &140111186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140111188}
+  - component: {fileID: 140111187}
+  m_Layer: 0
+  m_Name: GUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &140111187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140111186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f665a5b553c74f947a44142de8682a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liveCountingTxt: {fileID: 2076353121}
+  hpCountingTxt: {fileID: 2121244039}
+  coinCountingTxt: {fileID: 411230967}
+  timeCountingTxt: {fileID: 1761603090}
+  bulletCountingTxt: {fileID: 1446317361}
+  keyCountingTxt: {fileID: 939527113}
+  mobileGamepad: {fileID: 1857047198}
+  settingDialog: {fileID: 0}
+  pauseDialog: {fileID: 0}
+  lvClearedDialog: {fileID: 0}
+  lvFailedDialog: {fileID: 0}
+--- !u!4 &140111188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140111186}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &144979112
 GameObject:
   m_ObjectHideFlags: 0
@@ -9253,7 +9308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597867863099343228, guid: f57ed15dec078e7429def3dfad6c4e5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.43
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 597867863099343228, guid: f57ed15dec078e7429def3dfad6c4e5d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13785,3 +13840,4 @@ SceneRoots:
   - {fileID: 623775370}
   - {fileID: 1707117653}
   - {fileID: 413763895}
+  - {fileID: 140111188}

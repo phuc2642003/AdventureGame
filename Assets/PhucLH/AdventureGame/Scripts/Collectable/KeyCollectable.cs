@@ -6,16 +6,12 @@ namespace PhucLH.AdventureGame
 {
     public class KeyCollectable : Collectable
     {
-        // Start is called before the first frame update
-        void Start()
+        protected override void TriggerHandle()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            base.TriggerHandle();
+            GameManager.Ins.CurrentKey += bonus;
+            GameData.Ins.key = GameManager.Ins.CurrentKey;
+            GameData.Ins.SaveData();
         }
     }
 

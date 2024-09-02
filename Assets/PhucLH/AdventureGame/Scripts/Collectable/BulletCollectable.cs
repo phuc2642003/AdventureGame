@@ -6,16 +6,12 @@ namespace PhucLH.AdventureGame
 {
     public class BulletCollectable : Collectable
     {
-        // Start is called before the first frame update
-        void Start()
+        protected override void TriggerHandle()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            base.TriggerHandle();
+            GameManager.Ins.CurrentBullet += bonus;
+            GameData.Ins.bullet = GameManager.Ins.CurrentBullet;
+            GameData.Ins.SaveData();
         }
     }
 
