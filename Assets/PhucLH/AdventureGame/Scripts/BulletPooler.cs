@@ -6,6 +6,11 @@ namespace PhucLH.AdventureGame
 {
     public class BulletPooler : Singleton<BulletPooler>
     {
+        public override void Awake()
+        {
+            MakeSingleton(false);
+        }
+
         public List<GameObject> bulletPool;
         public int poolSize = 10;
         public GameObject bulletPrb;

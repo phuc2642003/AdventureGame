@@ -264,6 +264,7 @@ namespace PhucLH.AdventureGame
             {
                 ChangeState(PlayerAnimState.GotHit);
             }
+            GUIManager.Ins.UpdateHp(m_curHp);
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -540,6 +541,7 @@ namespace PhucLH.AdventureGame
         }
         void Dead_Update()
         {
+            GUIManager.Ins.UpdateHp(m_curHp);
             Helper.PlayAnim(m_anim, PlayerAnimState.Dead.ToString());
         }
         void Dead_Exit() { }
@@ -620,6 +622,7 @@ namespace PhucLH.AdventureGame
             {
                 ChangeState(PlayerAnimState.Idle);
             }
+            GUIManager.Ins.UpdateHp(m_curHp);
         }
         void GotHit_Exit() { }
         #endregion

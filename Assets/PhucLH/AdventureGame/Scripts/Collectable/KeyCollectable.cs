@@ -12,6 +12,7 @@ namespace PhucLH.AdventureGame
             GameManager.Ins.CurrentKey += bonus;
             GameData.Ins.key = GameManager.Ins.CurrentKey;
             GameData.Ins.SaveData();
+            GUIManager.Ins.UpdateKey(GameData.Ins.key);
         }
     }
 

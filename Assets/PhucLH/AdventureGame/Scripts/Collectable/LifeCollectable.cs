@@ -12,6 +12,7 @@ namespace PhucLH.AdventureGame
             GameManager.Ins.CurrentLive += bonus;
             GameData.Ins.live = GameManager.Ins.CurrentLive;
             GameData.Ins.SaveData();
+            GUIManager.Ins.UpdateLive(GameData.Ins.live);
         }
     }
 

@@ -12,6 +12,7 @@ namespace PhucLH.AdventureGame
             GameManager.Ins.CurrentBullet += bonus;
             GameData.Ins.bullet = GameManager.Ins.CurrentBullet;
             GameData.Ins.SaveData();
+            GUIManager.Ins.UpdateBullet(GameData.Ins.bullet);
         }
     }
 

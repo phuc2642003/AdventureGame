@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PhucLH/AdventureGame/Scenes/Gameplay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/PhucLH/AdventureGame/Scenes/Level_0.unity
+    guid: 9d64dc2d19b8bb34684fe92046efc1df
+  - enabled: 1
+    path: Assets/PhucLH/AdventureGame/Scenes/Level_1.unity
+    guid: 5344983ad1f9db74db57a6c84ef29987
+  - enabled: 1
+    path: Assets/PhucLH/AdventureGame/Scenes/Level_2.unity
+    guid: 66356f4977778f04b9375939d0e51df4
+  - enabled: 1
+    path: Assets/PhucLH/AdventureGame/Scenes/Level_3.unity
+    guid: db4b21dfa5884924983a9309a03cd0b9
   m_configObjects: {}

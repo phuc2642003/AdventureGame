@@ -13,6 +13,7 @@ namespace PhucLH.AdventureGame
             GameData.Ins.hp = player.CurHp;
             GameData.Ins.SaveData();
             //UpdateGameGUI
+            GUIManager.Ins.UpdateHp(GameData.Ins.hp);
         }
     }
 

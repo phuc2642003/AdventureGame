@@ -3352,7 +3352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1562196760}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749115912}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.LevelSelectDialog, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!222 &1562196762
 CanvasRenderer:
   m_ObjectHideFlags: 0

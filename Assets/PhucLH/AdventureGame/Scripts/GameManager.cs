@@ -41,6 +41,7 @@ namespace PhucLH.AdventureGame
         {
             LoadData();
             StartCoroutine(CamFollowDelay());
+            GUIManager.Ins.ShowMobileGamepad(setting.isOnMobile);
         }
         private void LoadData()
         {
@@ -75,7 +76,14 @@ namespace PhucLH.AdventureGame
             {
                 playTime = gamePlayTime;
             }    
-
+            
+            GUIManager.Ins.UpdateLive(currentLive);
+            GUIManager.Ins.UpdateHp(player.CurHp);
+            GUIManager.Ins.UpdateCoin(currentCoin);
+            GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(gamePlayTime));
+            GUIManager.Ins.UpdateBullet(currentBullet);
+            GUIManager.Ins.UpdateKey(currentKey);
+            
         }    
         public void BackToCheckPoint()
         {
@@ -93,6 +101,8 @@ namespace PhucLH.AdventureGame
             currentCoin += coins;
             GameData.Ins.coin += coins;
             GameData.Ins.SaveData();
+            
+            GUIManager.Ins.UpdateCoin(GameData.Ins.coin);
         }    
         public void Replay()
         {
@@ -132,6 +142,11 @@ namespace PhucLH.AdventureGame
                 Mathf.RoundToInt(playTime));
 
             GameData.Ins.SaveData();
+            
+            if (GUIManager.Ins.lvFailedDialog)
+            {
+                GUIManager.Ins.lvFailedDialog.Show(true);
+            }
         }
         public void LevelClear()
         {
@@ -141,6 +156,10 @@ namespace PhucLH.AdventureGame
             goalStar = LevelManager.Ins.GetLevel.goal.GetStar(Mathf.RoundToInt(playTime));
             GameData.Ins.SaveData();
 
+            if (GUIManager.Ins.lvClearedDialog)
+            {
+                GUIManager.Ins.lvClearedDialog.Show(true);
+            }
         }
         private IEnumerator CamFollowDelay()
         {
@@ -164,6 +183,8 @@ namespace PhucLH.AdventureGame
             if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId)) return;
 
             playTime += Time.deltaTime;
+            
+            GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(playTime));
         }
         protected void Playing_Exit() { }
         protected void LevelClear_Enter() { }
