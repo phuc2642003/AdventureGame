@@ -311,10 +311,11 @@ namespace PhucLH.AdventureGame
             {
                 TakeDamage(1);
             }
-            //if(collision.CompareTag(GameTag.CheckPoint.ToString()))
-            //{
-            //    //save data for player
-            //}
+            if(collision.CompareTag(GameTag.CheckPoint.ToString()))
+            {
+                //save data for player
+                GameManager.Ins.SaveCheckPoint();
+            }
             if(collision.CompareTag(GameTag.Collectable.ToString()))
             {
                 //Collect collectable items for player
@@ -324,9 +325,18 @@ namespace PhucLH.AdventureGame
                     collectable.Trigger();
                 }    
             }
-            if(collision.CompareTag(GameTag.Door.ToString()))
+
+            if (collision.CompareTag(GameTag.Door.ToString()))
             {
-                //
+                Door door = collision.GetComponent<Door>();
+                if (door)
+                {
+                    door.OpenDoor();
+                    if (door.IsOpen)
+                    {
+                        ChangeState(PlayerAnimState.SayHi);
+                    }
+                }
             }
         }
         private void OnTriggerExit2D(Collider2D collision)

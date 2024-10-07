@@ -883,13 +883,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7812243096392383182, guid: 46775ea6f04ec6144a95f46a9fb99524, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 375027718}
   m_SourcePrefab: {fileID: 100100000, guid: 46775ea6f04ec6144a95f46a9fb99524, type: 3}
 --- !u!224 &375027716 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 263167917295570434, guid: 46775ea6f04ec6144a95f46a9fb99524, type: 3}
   m_PrefabInstance: {fileID: 375027715}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &375027717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7812243096392383182, guid: 46775ea6f04ec6144a95f46a9fb99524, type: 3}
+  m_PrefabInstance: {fileID: 375027715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &375027718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375027717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4cb30a581c3b141b5bb389d294ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  contentText: {fileID: 0}
 --- !u!1 &381561388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,10 +2052,10 @@ RectTransform:
   - {fileID: 1575027721}
   m_Father: {fileID: 995684649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -112.5}
-  m_SizeDelta: {x: 280, y: 65}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &628836049
 CanvasRenderer:
@@ -2202,7 +2224,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643307893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1823417268}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.LevelClearDialog, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &643307893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,7 +2356,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 651246457}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2068852013}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.LevelFailedDialog, Assembly-CSharp
+        m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &651246457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,7 +2598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -350}
+  m_AnchoredPosition: {x: 150, y: -205}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689185333
@@ -2598,7 +2644,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 689185334}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324694671}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.PauseDialog, Assembly-CSharp
+        m_MethodName: OpenSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &689185334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,7 +3589,7 @@ GameObject:
   - component: {fileID: 866531407}
   - component: {fileID: 866531406}
   m_Layer: 5
-  m_Name: SaveButton
+  m_Name: ResumeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3599,7 +3657,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866531407}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324694671}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.PauseDialog, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866531407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3827,8 +3897,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 902790584}
-  - {fileID: 1004724097}
   - {fileID: 689185332}
+  - {fileID: 1004724097}
   m_Father: {fileID: 1335259107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3964,7 +4034,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902790586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324694671}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.PauseDialog, Assembly-CSharp
+        m_MethodName: Replay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &902790586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4087,7 +4169,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: -160, y: -60}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995684650
 MonoBehaviour:
@@ -4171,7 +4253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -205}
+  m_AnchoredPosition: {x: 150, y: -350}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004724098
@@ -4217,7 +4299,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1004724099}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324694671}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.PauseDialog, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1004724099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5074,8 +5168,8 @@ MonoBehaviour:
   bulletCountingTxt: {fileID: 1108055362}
   keyCountingTxt: {fileID: 1276315973}
   mobileGamepad: {fileID: 1969384119}
-  settingDialog: {fileID: 0}
-  pauseDialog: {fileID: 0}
+  settingDialog: {fileID: 375027718}
+  pauseDialog: {fileID: 1324694671}
   lvClearedDialog: {fileID: 0}
   lvFailedDialog: {fileID: 0}
 --- !u!4 &1136981817
@@ -5238,10 +5332,10 @@ RectTransform:
   - {fileID: 1126868742}
   m_Father: {fileID: 995684649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -32.5}
-  m_SizeDelta: {x: 280, y: 65}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1156225606
 CanvasRenderer:
@@ -6122,6 +6216,7 @@ GameObject:
   - component: {fileID: 1324694668}
   - component: {fileID: 1324694670}
   - component: {fileID: 1324694669}
+  - component: {fileID: 1324694671}
   m_Layer: 5
   m_Name: PauseDialog
   m_TagString: Untagged
@@ -6187,6 +6282,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324694667}
   m_CullTransparentMesh: 1
+--- !u!114 &1324694671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324694667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fd4a00bfdafdf48929343221f1a61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  contentText: {fileID: 0}
 --- !u!1 &1335259106
 GameObject:
   m_ObjectHideFlags: 0
@@ -6550,7 +6659,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1403029850}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1823417268}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.LevelClearDialog, Assembly-CSharp
+        m_MethodName: Replay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1403029850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11299,7 +11420,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1507693570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324694671}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.PauseDialog, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1507693570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11503,7 +11636,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1526485171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2068852013}
+        m_TargetAssemblyTypeName: PhucLH.AdventureGame.LevelFailedDialog, Assembly-CSharp
+        m_MethodName: Replay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1526485171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13055,6 +13200,7 @@ GameObject:
   - component: {fileID: 1823417265}
   - component: {fileID: 1823417267}
   - component: {fileID: 1823417266}
+  - component: {fileID: 1823417268}
   m_Layer: 5
   m_Name: LevelClearDialog
   m_TagString: Untagged
@@ -13120,6 +13266,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823417264}
   m_CullTransparentMesh: 1
+--- !u!114 &1823417268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823417264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e23aa0704482f946b071f131e089496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  contentText: {fileID: 0}
+  starImgs:
+  - {fileID: 415978598}
+  - {fileID: 2126397770}
+  - {fileID: 688103184}
+  activeStar: {fileID: 783386858, guid: 6cddf41fecffdc745b57d10156440fcf, type: 3}
+  deactiveStar: {fileID: -519352963, guid: 6cddf41fecffdc745b57d10156440fcf, type: 3}
+  liveCountingTxt: {fileID: 1920013511}
+  hpCountingTxt: {fileID: 1128030260}
+  timeCountingTxt: {fileID: 2086397428}
+  coinCountingTxt: {fileID: 2025896693}
 --- !u!1 &1841295782
 GameObject:
   m_ObjectHideFlags: 0
@@ -13941,13 +14111,14 @@ GameObject:
   - component: {fileID: 2068852010}
   - component: {fileID: 2068852012}
   - component: {fileID: 2068852011}
+  - component: {fileID: 2068852013}
   m_Layer: 5
   m_Name: LevelFailDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2068852010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14006,6 +14177,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068852009}
   m_CullTransparentMesh: 1
+--- !u!114 &2068852013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068852009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630b79020e3bd5648b9d13d1b5de4e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  contentText: {fileID: 0}
+  m_timeCountingTxt: {fileID: 1126868743}
+  m_coinCountingTxt: {fileID: 1575027722}
 --- !u!1 &2086397424
 GameObject:
   m_ObjectHideFlags: 0

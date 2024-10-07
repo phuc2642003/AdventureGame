@@ -8,7 +8,6 @@ namespace PhucLH.AdventureGame
     {
         protected override void TriggerHandle()
         {
-            base.TriggerHandle();
             GameManager.Ins.CurrentBullet += bonus;
             GameData.Ins.bullet = GameManager.Ins.CurrentBullet;
             GameData.Ins.SaveData();

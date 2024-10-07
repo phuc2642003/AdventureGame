@@ -23,6 +23,7 @@ namespace PhucLH.AdventureGame
         public override void Awake()
         {
             base.Awake();
+            MakeSingleton(false);
         }
 
         public void UpdateTxt(Text txt, string content)

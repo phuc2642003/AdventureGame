@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4635996657206115298}
   - component: {fileID: 8897517151919288932}
   - component: {fileID: 1666209922219665080}
+  - component: {fileID: -7977375286606352462}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -120,3 +121,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.023964474, y: -0.35947034}
   m_Size: {x: 3.507121, y: 5.6977262}
   m_Direction: 0
+--- !u!114 &-7977375286606352462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063427121051553593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3461acb5c1b7ec447bc8611ee5fc6542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyRequired: 1
+  openSprite: {fileID: -255199643, guid: 42f84de538ecd0648ab2fa1d125efff7, type: 3}
+  closedSprite: {fileID: 1226339804, guid: 42f84de538ecd0648ab2fa1d125efff7, type: 3}

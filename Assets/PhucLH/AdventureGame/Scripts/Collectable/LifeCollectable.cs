@@ -8,7 +8,6 @@ namespace PhucLH.AdventureGame
     {
         protected override void TriggerHandle()
         {
-            base.TriggerHandle();
             GameManager.Ins.CurrentLive += bonus;
             GameData.Ins.live = GameManager.Ins.CurrentLive;
             GameData.Ins.SaveData();
