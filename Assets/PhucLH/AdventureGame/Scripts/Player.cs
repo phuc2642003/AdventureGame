@@ -152,9 +152,17 @@ namespace PhucLH.AdventureGame
             if(direction == Direction.Left|| direction == Direction.Right)
             {
                 Flip(direction);
+                
                 m_hozDir =  direction == Direction.Left ? -1 : 1;
-                m_rb.velocity = new Vector2(m_hozDir * m_curSpeed, m_rb.velocity.y);
-
+                if (GameManager.Ins.setting.isOnMobile)
+                {
+                    m_rb.velocity = new Vector2(GamepadController.Ins.joystick.xValue * m_curSpeed, m_rb.velocity.y);
+                }
+                else
+                {
+                    m_rb.velocity = new Vector2(m_hozDir * m_curSpeed, m_rb.velocity.y);
+                }
+                
                 if(CameraFollow.ins.IsHozStuck)
                 {
                     GameManager.Ins.SetMapSpeed(0f);
@@ -167,7 +175,15 @@ namespace PhucLH.AdventureGame
             else if(direction == Direction.Up || direction== Direction.Down)
             {
                 m_vertDir = direction == Direction.Down ? -1 : 1;
-                m_rb.velocity = new Vector2(m_rb.velocity.x, m_vertDir * m_curSpeed);
+                if (GameManager.Ins.setting.isOnMobile)
+                {
+                    m_rb.velocity = new Vector2(m_rb.velocity.x, GamepadController.Ins.joystick.yValue * m_curSpeed);
+                }
+                else
+                {
+                    m_rb.velocity = new Vector2(m_rb.velocity.x, m_vertDir * m_curSpeed);
+                }
+                
             }    
         }   
         private void Jump()
@@ -233,7 +249,7 @@ namespace PhucLH.AdventureGame
                     return;
                 ChangeState(PlayerAnimState.HammerAttack);
             }    
-            else if(GamepadController.Ins.CanFire)
+            else if(GamepadController.Ins.CanFire && GameManager.Ins.CurrentBullet >0)
             {
                 ChangeState(PlayerAnimState.FireBullet);
             }    

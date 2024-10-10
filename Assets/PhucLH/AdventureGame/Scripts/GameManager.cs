@@ -174,6 +174,14 @@ namespace PhucLH.AdventureGame
                 map.Speed = speed;
             }    
         }
+        public void ReduceBullet()
+        {
+            currentBullet--;
+            GameData.Ins.bullet = currentBullet;
+            GameData.Ins.SaveData();
+            
+            GUIManager.Ins.UpdateBullet(currentBullet);
+        }
         #region FSM
         protected void Starting_Enter() { }
         protected void Starting_Update() { }

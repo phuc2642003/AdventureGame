@@ -7,6 +7,8 @@ namespace PhucLH.AdventureGame
 {
     public class GamepadController : Singleton<GamepadController>
     {
+        public Joystick joystick;
+        
         public float jumpHoldingTime;
         private bool m_canMoveLeft;
         private bool m_canMoveRight;
@@ -75,7 +77,12 @@ namespace PhucLH.AdventureGame
             }
             else
             {
-
+                if (joystick == null) return;
+                
+                m_canMoveLeft = joystick.xValue <0 ? true : false;
+                m_canMoveRight = joystick.xValue >0 ? true : false;
+                m_canMoveUp = joystick.yValue >0 ? true : false;
+                m_canMoveDown = joystick.yValue <0 ? true : false;
             }
         }
     }

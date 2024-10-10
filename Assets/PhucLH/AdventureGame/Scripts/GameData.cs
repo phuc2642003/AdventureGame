@@ -40,8 +40,7 @@ namespace PhucLH.AdventureGame
         public T GetValue<T>(List<T> dataList, int index)
         {
             if (dataList == null || dataList.Count <= 0 || index < 0 || index > dataList.Count) { }
-
-
+            
             return dataList[index];
         }
         public void UpdateValue<T>(ref List<T> dataList, int index, T value)

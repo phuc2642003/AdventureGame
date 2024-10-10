@@ -17,15 +17,12 @@ namespace PhucLH.AdventureGame
                 bulletObject.transform.position = firePoint.position;
                 bulletObject.SetActive(true);
                 Bullet bullet = bulletObject.GetComponent<Bullet>();
-                if(bullet.speed>0)
-                {
-                    bullet.speed = player.IsFacingLeft ? -bullet.speed : bullet.speed;
-                }    
-                else
-                {
-                    bullet.speed = player.IsFacingLeft ? bullet.speed : -bullet.speed;
-                }    
+
+                bullet.speed = player.IsFacingLeft && bullet.speed > 0 ? -bullet.speed : bullet.speed;
+  
                 bullet.owner = player;
+
+                GameManager.Ins.ReduceBullet();
             }  
         }
     }
