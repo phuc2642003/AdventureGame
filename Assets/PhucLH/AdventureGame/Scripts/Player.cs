@@ -398,6 +398,7 @@ namespace PhucLH.AdventureGame
         #region Jump_State
         void Jump_Enter() {
             ActiveColider(PlayerCollider.Default);
+            AudioController.ins.PlaySound(AudioController.ins.jump);
         }
         void Jump_Update() {
             m_rb.isKinematic = false;
@@ -437,6 +438,7 @@ namespace PhucLH.AdventureGame
         void Land_Enter() {
             ActiveColider(PlayerCollider.Default);
             ChangeStateDelay(PlayerAnimState.Idle);
+            AudioController.ins.PlaySound(AudioController.ins.land);
         }
         void Land_Update() {
             m_rb.velocity = Vector2.zero;
@@ -466,6 +468,7 @@ namespace PhucLH.AdventureGame
         #region FireBullet_State
         void FireBullet_Enter() {
             ChangeStateDelay(PlayerAnimState.Idle);
+            AudioController.ins.PlaySound(AudioController.ins.fireBullet);
         }
         void FireBullet_Update()
         {
@@ -564,6 +567,7 @@ namespace PhucLH.AdventureGame
         #region Dead_State
         void Dead_Enter() {
             CamShake.ins.ShakeTrigger(0.7f, 0.1f);
+            AudioController.ins.PlaySound(AudioController.ins.dead);
         }
         void Dead_Update()
         {
@@ -633,7 +637,11 @@ namespace PhucLH.AdventureGame
         #endregion
 
         #region GotHit_State
-        void GotHit_Enter() { }
+
+        void GotHit_Enter()
+        {
+            AudioController.ins.PlaySound(AudioController.ins.getHit);
+        }
         void GotHit_Update()
         {
             if(m_isKnockBack)

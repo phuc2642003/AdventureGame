@@ -62,6 +62,8 @@ namespace PhucLH.AdventureGame
 
                 LevelManager.Ins.CurrentLevelId = index;
                 SceneController.Ins.LoadLevelScene(index);
+                
+                
             }    
             else
             {
@@ -77,6 +79,8 @@ namespace PhucLH.AdventureGame
                     UpdateUI();
 
                     SceneController.Ins.LoadLevelScene(index);
+                    
+                    AudioController.ins.PlaySound(AudioController.ins.unlock);
                 }    
                 else
                 {

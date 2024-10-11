@@ -49,7 +49,8 @@ namespace PhucLH.AdventureGame
                 Instantiate(destroyVfxPb, transform.position, Quaternion.identity);
             }
             //Play sound
-
+            AudioController.ins.PlaySound(collisionSfx);
+            
             gameObject.SetActive(false);
         }
     }

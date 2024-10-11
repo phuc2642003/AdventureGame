@@ -27,6 +27,7 @@ namespace PhucLH.AdventureGame
                     enemy.TakeDamage(player.stat.Damage, player);
                 }
             }
+            AudioController.ins.PlaySound(AudioController.ins.attack);
         }
         private void Update()
         {

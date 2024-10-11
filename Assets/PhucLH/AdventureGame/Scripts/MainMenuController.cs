@@ -19,6 +19,7 @@ namespace PhucLH.AdventureGame
                 LevelManager.Ins.Init();
             }
             Pref.isFirstTime = false;
+            AudioController.ins.PlayMusic(AudioController.ins.menus);
         }
     }
 

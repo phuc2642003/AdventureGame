@@ -77,6 +77,8 @@ namespace PhucLH.AdventureGame
                 GameData.Ins.coin -= shopItem.price;
                 GameData.Ins.SaveData();
                 UpdateUI();
+                
+                AudioController.ins.PlaySound(AudioController.ins.buy);
             }    
             else
             {

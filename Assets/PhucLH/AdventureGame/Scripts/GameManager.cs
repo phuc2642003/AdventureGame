@@ -42,6 +42,7 @@ namespace PhucLH.AdventureGame
             LoadData();
             StartCoroutine(CamFollowDelay());
             GUIManager.Ins.ShowMobileGamepad(setting.isOnMobile);
+            AudioController.ins.PlayBackgroundMusic();
         }
         private void LoadData()
         {
@@ -147,6 +148,7 @@ namespace PhucLH.AdventureGame
             {
                 GUIManager.Ins.lvFailedDialog.Show(true);
             }
+            AudioController.ins.PlaySound(AudioController.ins.fail);
         }
         public void LevelClear()
         {
@@ -160,6 +162,7 @@ namespace PhucLH.AdventureGame
             {
                 GUIManager.Ins.lvClearedDialog.Show(true);
             }
+            AudioController.ins.PlaySound(AudioController.ins.missionComplete);
         }
         private IEnumerator CamFollowDelay()
         {

@@ -84,7 +84,7 @@ MonoBehaviour:
   type: 4
   minBonus: 1
   maxBonus: 5
-  collisionSfx: {fileID: 0}
+  collisionSfx: {fileID: 8300000, guid: 5cea1ac231ca85e4a848a9638d0dd304, type: 3}
   destroyVfxPb: {fileID: 5612482744644089287, guid: a45f37fe3564ca74c915bd4b6b20084f, type: 3}
 --- !u!1 &3891622759723875552
 GameObject:
