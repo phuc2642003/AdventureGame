@@ -140,8 +140,15 @@ namespace PhucLH.AdventureGame
         protected override void Dead()
         {         
             if (IsDead) return;
-            base.Dead();
-            ChangeState(PlayerAnimState.Dead);
+            if (GameManager.Ins.CurrentLive > 0)
+            {
+                GameManager.Ins.Revive();
+            }
+            else
+            {
+                base.Dead();
+                ChangeState(PlayerAnimState.Dead);
+            }
         }
         private void Move(Direction direction)
         {
@@ -331,6 +338,7 @@ namespace PhucLH.AdventureGame
             {
                 //save data for player
                 GameManager.Ins.SaveCheckPoint();
+                //AudioController.ins.PlaySound(AudioController.ins.unlock);
             }
             if(collision.CompareTag(GameTag.Collectable.ToString()))
             {
@@ -341,7 +349,7 @@ namespace PhucLH.AdventureGame
                     collectable.Trigger();
                 }    
             }
-
+            
             if (collision.CompareTag(GameTag.Door.ToString()))
             {
                 Door door = collision.GetComponent<Door>();
@@ -568,6 +576,7 @@ namespace PhucLH.AdventureGame
         void Dead_Enter() {
             CamShake.ins.ShakeTrigger(0.7f, 0.1f);
             AudioController.ins.PlaySound(AudioController.ins.dead);
+            GameManager.Ins.LevelFailed();
         }
         void Dead_Update()
         {

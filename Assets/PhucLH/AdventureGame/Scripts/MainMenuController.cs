@@ -15,9 +15,16 @@ namespace PhucLH.AdventureGame
             }    
             else
             {
-                //GameData.Ins.SaveData();
+                GameData.Ins.musicVol = AudioController.ins.musicVolume;
+                GameData.Ins.soundVol = AudioController.ins.sfxVolume;
+                
+                GameData.Ins.SaveData();
                 LevelManager.Ins.Init();
             }
+            
+            AudioController.ins.SetMusicVolume(GameData.Ins.musicVol);
+            AudioController.ins.SetSoundVolume(GameData.Ins.soundVol);
+            
             Pref.isFirstTime = false;
             AudioController.ins.PlayMusic(AudioController.ins.menus);
         }

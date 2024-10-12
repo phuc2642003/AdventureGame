@@ -33,6 +33,7 @@ namespace PhucLH.AdventureGame
         public void OpenSetting()
         {
             Close();
+            Time.timeScale = 0f;
             if (GUIManager.Ins.settingDialog)
             {
                 GUIManager.Ins.settingDialog.Show(true);

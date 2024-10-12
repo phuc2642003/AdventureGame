@@ -95,7 +95,10 @@ namespace PhucLH.AdventureGame
             currentLive--;
             player.CurHp = player.stat.hp;
             GameData.Ins.hp = player.CurHp;
+            GameData.Ins.live = currentLive;
             GameData.Ins.SaveData();
+            BackToCheckPoint();
+            GUIManager.Ins.UpdateLive(currentLive);
         }    
         public void AddCoins(int coins)
         {

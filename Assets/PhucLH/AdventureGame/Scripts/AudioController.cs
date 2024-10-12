@@ -117,8 +117,14 @@ public class AudioController : MonoBehaviour
     public void SetMusicVolume(float vol)
     {
         if (musicAus) musicAus.volume = vol;
+        musicVolume = vol;
     }
 
+    public void SetSoundVolume(float vol)
+    {
+        if (sfxAus) sfxAus.volume = vol;
+        sfxVolume = vol;
+    }
     /// <summary>
     /// Stop play music or sound effect
     /// </summary>
