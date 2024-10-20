@@ -7,10 +7,10 @@ namespace PhucLH.AdventureGame
     public class EnemyFreeMoving : Enemy
     {
         public bool canRotate;
-        private float x_leftPosition;
-        private float x_rightPosition;
-        private float y_topPosition;
-        private float y_downPosition;
+        protected float x_leftPosition;
+        protected float x_rightPosition;
+        protected float y_topPosition;
+        protected float y_downPosition;
 
         private bool haveMovingPosition;
         private Vector2 movingPosition;
@@ -40,6 +40,9 @@ namespace PhucLH.AdventureGame
             {
                 float randomPositionX = Random.Range(x_leftPosition,x_rightPosition);
                 float randomPositionY = Random.Range(y_downPosition, y_topPosition);
+                
+                InWaterChecking(ref randomPositionX,ref randomPositionY);
+                
                 movingPosition = new Vector2(randomPositionX, randomPositionY);
                 movingDirection = movingPosition - (Vector2)transform.position;
                 movingDirection.Normalize();
@@ -109,6 +112,11 @@ namespace PhucLH.AdventureGame
         }
         #endregion
 
+        protected virtual void InWaterChecking(ref float x,ref float y)
+        {
+            
+        }
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
@@ -117,6 +125,7 @@ namespace PhucLH.AdventureGame
             Gizmos.color = Color.blue;
             Gizmos.DrawLine(transform.position, new Vector3(transform.position.x - movingDistance, transform.position.y, transform.position.z));
         }
+        
     }
 }
 

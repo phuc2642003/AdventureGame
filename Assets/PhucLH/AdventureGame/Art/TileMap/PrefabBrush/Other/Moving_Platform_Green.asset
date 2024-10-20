@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
-  m_Name: BlackThornDown
+  m_Name: Moving_Platform_Green
   m_EditorClassIdentifier: 
   m_Cells:
   - m_Tile: {fileID: 0}
@@ -36,5 +36,5 @@ MonoBehaviour:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_CanChangeZPosition: 0
   m_FloodFillContiguousOnly: 1
-  m_Anchor: {x: 0.5, y: 0.6, z: 0.5}
-  m_Prefab: {fileID: 8515154973101148009, guid: bd84d309e2dcc3b498f2c57fe3289674, type: 3}
+  m_Anchor: {x: 0.5, y: 0.5, z: 0.5}
+  m_Prefab: {fileID: 7088227390562500386, guid: dba76003215e06647ac836206d1e5704, type: 3}

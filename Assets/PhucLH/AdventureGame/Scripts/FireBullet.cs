@@ -21,7 +21,7 @@ namespace PhucLH.AdventureGame
                 bullet.speed = player.IsFacingLeft && bullet.speed > 0 ? -bullet.speed : bullet.speed;
   
                 bullet.owner = player;
-
+                Debug.Log(bulletObject.transform.position);
                 GameManager.Ins.ReduceBullet();
             }  
         }

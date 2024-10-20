@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1491725471208866641}
   - component: {fileID: 2339785405110235277}
   - component: {fileID: 7774365550017895009}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,9 +118,12 @@ GameObject:
   - component: {fileID: 7739982445498434849}
   - component: {fileID: 4079756652578230021}
   - component: {fileID: 360012708360378972}
-  m_Layer: 0
+  - component: {fileID: 7348736717870764914}
+  - component: {fileID: 3330482959111814391}
+  - component: {fileID: 4558587671743433349}
+  m_Layer: 11
   m_Name: OrangeDinosaur
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,10 +218,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers: []
-  flashRate: 0
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  spriteRenderers:
+  - {fileID: 2339785405110235277}
+  flashRate: 0.1
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  flashColor: {r: 1, g: 0.3915094, b: 0.3915094, a: 0}
   OnCompleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7348736717870764914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924325549360699462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93b9a3fff50cf64f9b52d7e9a96dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+  detectMethod: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectDistance: 3
+--- !u!114 &3330482959111814391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924325549360699462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab25dd7c483fca4c911fa494594994f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: 0
+  movingDistance: 3
+  speed: 0
+  isOnlyUp: 0
+  isAuto: 0
+--- !u!114 &4558587671743433349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924325549360699462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364d93d24900cd445853a97a1e5f1eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: fb350a39e611ae14b9115c19bc09f642, type: 2}
+  normalLayer: 11
+  invincibleLayer: 9
+  deadLayer: 10
+  m_anim: {fileID: 7774365550017895009}
+  flashVfx: {fileID: 360012708360378972}
+  deadVfxPb: {fileID: 0}
+  movingDistance: 0

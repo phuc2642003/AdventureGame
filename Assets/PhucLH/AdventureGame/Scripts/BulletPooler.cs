@@ -20,7 +20,7 @@ namespace PhucLH.AdventureGame
             for (int i = 0; i < poolSize; i++)
             {
                 GameObject bullet;
-                bullet = Instantiate(bulletPrb);
+                bullet = Instantiate(bulletPrb,gameObject.transform);
                 bullet.SetActive(false);
                 bulletPool.Add(bullet);
             }    

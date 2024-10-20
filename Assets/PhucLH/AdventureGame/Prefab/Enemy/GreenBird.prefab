@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 7006917852213431640}
   - component: {fileID: -545824276126247724}
   - component: {fileID: -4193174826911785443}
-  m_Layer: 0
+  - component: {fileID: 2741025526046059744}
+  - component: {fileID: 7288343396374443813}
+  m_Layer: 11
   m_Name: GreenBird
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,13 +111,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers: []
-  flashRate: 0
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  spriteRenderers:
+  - {fileID: 3891051417680118522}
+  flashRate: 0.1
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  flashColor: {r: 1, g: 0.4481132, b: 0.4481132, a: 0}
   OnCompleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2741025526046059744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432622067122031325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93b9a3fff50cf64f9b52d7e9a96dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+  detectMethod: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectDistance: 3
+--- !u!114 &7288343396374443813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432622067122031325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bf37c58cf485b4dad9b4ff52297845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 86c2c0413571c1b4aaa5e1e2e1ed6c65, type: 2}
+  normalLayer: 11
+  invincibleLayer: 9
+  deadLayer: 10
+  m_anim: {fileID: 8952524641578725275}
+  flashVfx: {fileID: -4193174826911785443}
+  deadVfxPb: {fileID: 0}
+  movingDistance: 3
+  canRotate: 0
 --- !u!1 &7031185689949401068
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +169,7 @@ GameObject:
   - component: {fileID: 7138710601861350157}
   - component: {fileID: 3891051417680118522}
   - component: {fileID: 8952524641578725275}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1923667441482697611}
   - component: {fileID: 7815387004713971410}
   - component: {fileID: 4466899796787042901}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,9 +118,11 @@ GameObject:
   - component: {fileID: -8426492423483964618}
   - component: {fileID: -2631440407888187855}
   - component: {fileID: -3442552098840009250}
-  m_Layer: 0
+  - component: {fileID: 7624895278753694879}
+  - component: {fileID: 5616143544305557396}
+  m_Layer: 11
   m_Name: PurpleBat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,10 +217,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfc519e676ca3d4da75c691ca2544d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers: []
-  flashRate: 0
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  spriteRenderers:
+  - {fileID: 7815387004713971410}
+  flashRate: 0.1
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  flashColor: {r: 1, g: 0.43867922, b: 0.43867922, a: 0}
   OnCompleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7624895278753694879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251857027124046722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93b9a3fff50cf64f9b52d7e9a96dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disable: 0
+  detectMethod: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectDistance: 3
+--- !u!114 &5616143544305557396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251857027124046722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bf37c58cf485b4dad9b4ff52297845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 2f51cf7ea68ff4745a34c39dd65da9de, type: 2}
+  normalLayer: 11
+  invincibleLayer: 9
+  deadLayer: 10
+  m_anim: {fileID: 4466899796787042901}
+  flashVfx: {fileID: -3442552098840009250}
+  deadVfxPb: {fileID: 0}
+  movingDistance: 3
+  canRotate: 0
