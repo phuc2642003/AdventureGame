@@ -44,10 +44,10 @@ namespace PhucLH.AdventureGame
         {
             TriggerHandle();
 
-            if(destroyVfxPb)
-            {
-                Instantiate(destroyVfxPb, transform.position, Quaternion.identity);
-            }
+            // if(destroyVfxPb)
+            // {
+            //     Instantiate(destroyVfxPb, transform.position, Quaternion.identity);
+            // }
             //Play sound
             AudioController.ins.PlaySound(collisionSfx);
             

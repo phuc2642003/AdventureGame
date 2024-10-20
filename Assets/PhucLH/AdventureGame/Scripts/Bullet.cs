@@ -25,7 +25,14 @@ namespace PhucLH.AdventureGame
 
         private void Update()
         {
-            transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
+            if (gameObject.activeInHierarchy)
+            {
+                transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
+            }
+            else
+            {
+                transform.position = startPosition;
+            }
         }
         private void FixedUpdate()
         {

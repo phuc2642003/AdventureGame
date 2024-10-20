@@ -12,15 +12,14 @@ namespace PhucLH.AdventureGame
         }
 
         public List<GameObject> bulletPool;
-        public int poolSize = 10;
+        public int poolSize = 15;
         public GameObject bulletPrb;
         void Start()
         {
             bulletPool = new List<GameObject>();
             for (int i = 0; i < poolSize; i++)
             {
-                GameObject bullet;
-                bullet = Instantiate(bulletPrb,gameObject.transform);
+                GameObject bullet = Instantiate(bulletPrb,gameObject.transform);
                 bullet.SetActive(false);
                 bulletPool.Add(bullet);
             }    

@@ -60,6 +60,7 @@ namespace PhucLH.AdventureGame
             {
                 coinCountingTxt.text = $"x {GameManager.Ins.CurrentCoin}";
             }
+            Time.timeScale = 0f;
         }
         public void Replay()
         {

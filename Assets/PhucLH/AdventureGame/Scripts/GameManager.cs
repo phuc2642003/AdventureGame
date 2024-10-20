@@ -111,6 +111,7 @@ namespace PhucLH.AdventureGame
         public void Replay()
         {
             SceneController.Ins.LoadLevelScene(LevelManager.Ins.CurrentLevelId);
+            Time.timeScale = 1f;
         }    
         public void NextLevel()
         {

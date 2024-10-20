@@ -170,7 +170,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &6810378543281357595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -221,8 +221,8 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 5127753277727847718}
   flashRate: 0.1
-  normalColor: {r: 1, g: 1, b: 1, a: 0}
-  flashColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 1, g: 0.42745098, b: 0.42745098, a: 0.6313726}
   OnCompleted:
     m_PersistentCalls:
       m_Calls: []

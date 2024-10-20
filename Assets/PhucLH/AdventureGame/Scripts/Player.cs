@@ -574,7 +574,7 @@ namespace PhucLH.AdventureGame
 
         #region Dead_State
         void Dead_Enter() {
-            CamShake.ins.ShakeTrigger(0.7f, 0.1f);
+            //CamShake.ins.ShakeTrigger(0.7f, 0.1f);
             AudioController.ins.PlaySound(AudioController.ins.dead);
             GameManager.Ins.LevelFailed();
         }

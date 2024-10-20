@@ -22,8 +22,10 @@ namespace PhucLH.AdventureGame
             {
                 m_coinCountingTxt.text = $"{GameManager.Ins.CurrentCoin}";
             }
-        }
 
+            Time.timeScale = 0f;
+        }
+        
         public void Replay()
         {
             Close();

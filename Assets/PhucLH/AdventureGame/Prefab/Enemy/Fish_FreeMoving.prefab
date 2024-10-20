@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disable: 0
-  detectMethod: 1
+  detectMethod: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -259,8 +259,8 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 7555916932936682446}
   flashRate: 0.1
-  normalColor: {r: 1, g: 1, b: 1, a: 0}
-  flashColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 1, g: 0.42745098, b: 0.42745098, a: 0.6313726}
   OnCompleted:
     m_PersistentCalls:
       m_Calls: []
