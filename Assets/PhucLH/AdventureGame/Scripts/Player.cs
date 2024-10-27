@@ -304,7 +304,6 @@ namespace PhucLH.AdventureGame
                 m_rb.isKinematic = true;
                 transform.SetParent(collision.gameObject.transform);
             }
-
         }
         private void OnCollisionStay2D(Collision2D collision)
         {
@@ -356,7 +355,7 @@ namespace PhucLH.AdventureGame
                 if (door)
                 {
                     door.OpenDoor();
-                    if (door.IsOpen)
+                    if (door.CanOpen)
                     {
                         ChangeState(PlayerAnimState.SayHi);
                     }

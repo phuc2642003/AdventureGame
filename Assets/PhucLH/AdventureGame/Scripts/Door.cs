@@ -13,7 +13,7 @@ namespace PhucLH.AdventureGame
 
         private SpriteRenderer sprite;
         public bool IsOpen { get; private set; }
-
+        public bool CanOpen { get; set; }
         private void Awake()
         {
             sprite = GetComponent<SpriteRenderer>();
@@ -26,33 +26,29 @@ namespace PhucLH.AdventureGame
 
         private void DoorChecking()
         {
-            IsOpen = GameData.Ins.IsLevelUnlocked(LevelManager.Ins.CurrentLevelId + 1);
-            sprite.sprite = IsOpen ? openSprite : closedSprite;
+            IsOpen = GameData.Ins.IsLevelUnlocked(LevelManager.Ins.CurrentLevelId+1);
         }
 
         public void OpenDoor()
         {
-            if (IsOpen)
-            {
-                GameManager.Ins.CurrentKey = 0;
-                GameManager.Ins.LevelClear();
-                GUIManager.Ins.UpdateKey(GameManager.Ins.CurrentKey);
-                return;
-            }
-
             if (GameManager.Ins.CurrentKey >= keyRequired)
             {
+                CanOpen = true;
+                if (!IsOpen)
+                {
+                    GameData.Ins.UpdateLevelUnlocked(LevelManager.Ins.CurrentLevelId+1,true);
+                    GameData.Ins.UpdateLevelPassed(LevelManager.Ins.CurrentLevelId, true);
+                }
+                sprite.sprite = openSprite;
                 GameManager.Ins.CurrentKey = 0;
                 GameData.Ins.key = 0;
-                GameData.Ins.UpdateLevelUnlocked(LevelManager.Ins.CurrentLevelId+1,true);
-                GameData.Ins.UpdateLevelPassed(LevelManager.Ins.CurrentLevelId, true);
                 GameData.Ins.SaveData();
                 GameManager.Ins.LevelClear();
                 DoorChecking();
 
                 GUIManager.Ins.UpdateKey(GameManager.Ins.CurrentKey);
-
             }
+            
         }
     }
 }

@@ -35,10 +35,10 @@ namespace PhucLH.AdventureGame
         }
         protected void DestroyWhenLevelPassed()
         {
-            if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId))
-            {
-                Destroy(gameObject);
-            }
+            // if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId))
+            // {
+            //     Destroy(gameObject);
+            // }
         }
         public void Trigger()
         {

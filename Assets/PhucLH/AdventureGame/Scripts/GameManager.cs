@@ -93,6 +93,7 @@ namespace PhucLH.AdventureGame
             currentCoin = 0;
             GameData.Ins.live = 1;
             GameData.Ins.hp = 3;
+            GameData.Ins.SaveData();
         }
         public void Revive()
         {
@@ -146,14 +147,14 @@ namespace PhucLH.AdventureGame
         {
             fsm.ChangeState(GameState.LevelFail);
             GameData.Ins.coin += currentCoin;
-            
+            GameData.Ins.SaveData();
             if (GUIManager.Ins.lvFailedDialog)
             {
                 GUIManager.Ins.lvFailedDialog.Show(true);
             }
             AudioController.ins.PlaySound(AudioController.ins.fail);
             ResetGameplayInfo();
-            GameData.Ins.SaveData();
+            
         }
         public void LevelClear()
         {
@@ -161,14 +162,15 @@ namespace PhucLH.AdventureGame
             GameData.Ins.UpdateLevelScored(LevelManager.Ins.CurrentLevelId,
                 Mathf.RoundToInt(playTime));
             goalStar = LevelManager.Ins.GetLevel.goal.GetStar(Mathf.RoundToInt(playTime));
-
+            GameData.Ins.coin += currentCoin;
+            GameData.Ins.SaveData();
             if (GUIManager.Ins.lvClearedDialog)
             {
                 GUIManager.Ins.lvClearedDialog.Show(true);
             }
             AudioController.ins.PlaySound(AudioController.ins.missionComplete);
             ResetGameplayInfo();
-            GameData.Ins.SaveData();
+            
         }
         private IEnumerator CamFollowDelay()
         {
