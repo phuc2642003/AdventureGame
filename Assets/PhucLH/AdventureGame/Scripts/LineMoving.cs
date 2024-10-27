@@ -96,10 +96,10 @@ namespace PhucLH.AdventureGame
                     transform.position = new Vector2(startPosition.x, transform.position.y);
                     break;
                 case Direction.Down:
-                    if (isOnlyUp) return;
-
-                    m_rb.velocity = new Vector2(m_rb.velocity.x, -speed);
                     transform.position = new Vector2(startPosition.x, transform.position.y);
+                    if (isOnlyUp) return;
+                    m_rb.velocity = new Vector2(m_rb.velocity.x, -speed);
+                    
                     break;
             }
         }

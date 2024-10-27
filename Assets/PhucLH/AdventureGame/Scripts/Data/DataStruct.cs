@@ -107,7 +107,8 @@ namespace PhucLH.AdventureGame
     {
         public int price;
         public Sprite previewSprite;
-        public Goal goal;       
+        public Goal goal;
+        public Vector3 firstCheckpoint;
     }
     [System.Serializable]
     public class ShopItem

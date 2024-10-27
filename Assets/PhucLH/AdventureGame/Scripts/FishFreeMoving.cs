@@ -6,6 +6,24 @@ namespace PhucLH.AdventureGame
 {
     public class FishFreeMoving : EnemyFreeMoving
     {
+        protected override void Update()
+        {
+            if (!GameManager.Ins.player.obstacleChecker.IsOnWater)
+            {
+                fsm.ChangeState(EnemyAnimState.Moving);
+                return; 
+            }
+            base.Update();
+        }
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!GameManager.Ins.player.obstacleChecker.IsOnWater)
+            {
+                fsm.ChangeState(EnemyAnimState.Moving);
+            }
+        }
         protected override void InWaterChecking(ref float x,ref float y)
         {
             while (!IsInWater(x, y))

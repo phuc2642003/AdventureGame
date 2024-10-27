@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PhucLH/AdventureGame/Scenes/Level_3.unity
     guid: db4b21dfa5884924983a9309a03cd0b9
+  - enabled: 1
+    path: Assets/PhucLH/AdventureGame/Scenes/Test.unity
+    guid: bad91adcfe72039468ae85de98d57206
   m_configObjects: {}

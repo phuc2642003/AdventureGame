@@ -71,17 +71,12 @@ namespace PhucLH.AdventureGame
             {
                 player.transform.position = checkPoint;
             }
-
-            float gamePlayTime = GameData.Ins.GetPlayTime(LevelManager.Ins.CurrentLevelId);
-            if(gamePlayTime>0)
-            {
-                playTime = gamePlayTime;
-            }    
+            
             
             GUIManager.Ins.UpdateLive(currentLive);
             GUIManager.Ins.UpdateHp(player.CurHp);
             GUIManager.Ins.UpdateCoin(currentCoin);
-            GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(gamePlayTime));
+            GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(playTime));
             GUIManager.Ins.UpdateBullet(currentBullet);
             GUIManager.Ins.UpdateKey(currentKey);
             
@@ -89,7 +84,16 @@ namespace PhucLH.AdventureGame
         public void BackToCheckPoint()
         {
             player.transform.position = GameData.Ins.GetCheckPoint(LevelManager.Ins.CurrentLevelId);
-        }    
+        }
+        
+        public void ResetGameplayInfo()
+        {
+            GameData.Ins.UpdateCheckedPoint(LevelManager.Ins.CurrentLevelId, LevelManager.Ins.GetLevel.firstCheckpoint);
+            playTime = 0;
+            currentCoin = 0;
+            GameData.Ins.live = 1;
+            GameData.Ins.hp = 3;
+        }
         public void Revive()
         {
             currentLive--;
@@ -103,14 +107,12 @@ namespace PhucLH.AdventureGame
         public void AddCoins(int coins)
         {
             currentCoin += coins;
-            GameData.Ins.coin += coins;
-            GameData.Ins.SaveData();
-            
-            GUIManager.Ins.UpdateCoin(GameData.Ins.coin);
+            GUIManager.Ins.UpdateCoin(currentCoin);
         }    
         public void Replay()
         {
             SceneController.Ins.LoadLevelScene(LevelManager.Ins.CurrentLevelId);
+            ResetGameplayInfo();
             Time.timeScale = 1f;
         }    
         public void NextLevel()
@@ -143,16 +145,15 @@ namespace PhucLH.AdventureGame
         public void LevelFailed()
         {
             fsm.ChangeState(GameState.LevelFail);
-            GameData.Ins.UpdateLevelScored(LevelManager.Ins.CurrentLevelId,
-                Mathf.RoundToInt(playTime));
-
-            GameData.Ins.SaveData();
+            GameData.Ins.coin += currentCoin;
             
             if (GUIManager.Ins.lvFailedDialog)
             {
                 GUIManager.Ins.lvFailedDialog.Show(true);
             }
             AudioController.ins.PlaySound(AudioController.ins.fail);
+            ResetGameplayInfo();
+            GameData.Ins.SaveData();
         }
         public void LevelClear()
         {
@@ -160,13 +161,14 @@ namespace PhucLH.AdventureGame
             GameData.Ins.UpdateLevelScored(LevelManager.Ins.CurrentLevelId,
                 Mathf.RoundToInt(playTime));
             goalStar = LevelManager.Ins.GetLevel.goal.GetStar(Mathf.RoundToInt(playTime));
-            GameData.Ins.SaveData();
 
             if (GUIManager.Ins.lvClearedDialog)
             {
                 GUIManager.Ins.lvClearedDialog.Show(true);
             }
             AudioController.ins.PlaySound(AudioController.ins.missionComplete);
+            ResetGameplayInfo();
+            GameData.Ins.SaveData();
         }
         private IEnumerator CamFollowDelay()
         {
@@ -195,7 +197,7 @@ namespace PhucLH.AdventureGame
         protected void Starting_Exit() { }
         protected void Playing_Enter() { }
         protected void Playing_Update() {
-            if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId)) return;
+            //if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId)) return;
 
             playTime += Time.deltaTime;
             

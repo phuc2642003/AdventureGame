@@ -15,7 +15,7 @@ namespace PhucLH.AdventureGame
         public void Replay()
         {
             Close();
-            SceneController.Ins.LoadLevelScene(LevelManager.Ins.CurrentLevelId);
+            GameManager.Ins.Replay();
         }
 
         public override void Close()
@@ -27,6 +27,7 @@ namespace PhucLH.AdventureGame
         public void Exit()
         {
             Close();
+            GameManager.Ins.ResetGameplayInfo();
             SceneController.Ins.LoadScene(GameScene.MainMenu.ToString());
         }
         

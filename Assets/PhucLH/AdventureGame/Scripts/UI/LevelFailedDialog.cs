@@ -23,18 +23,20 @@ namespace PhucLH.AdventureGame
                 m_coinCountingTxt.text = $"{GameManager.Ins.CurrentCoin}";
             }
 
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }
         
         public void Replay()
         {
             Close();
             GameManager.Ins.Replay();
+            Time.timeScale = 1f;
         }
 
         public void BackToMenu()
         {
             SceneController.Ins.LoadScene(GameScene.MainMenu.ToString());
+            Time.timeScale = 1f;
         }
     }
 

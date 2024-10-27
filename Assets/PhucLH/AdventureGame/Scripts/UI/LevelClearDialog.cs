@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace PhucLH.AdventureGame
@@ -11,10 +12,9 @@ namespace PhucLH.AdventureGame
         public Sprite activeStar;
         public Sprite deactiveStar;
 
-        public Text liveCountingTxt;
-        public Text hpCountingTxt;
+        public Text coinText;
         public Text timeCountingTxt;
-        public Text coinCountingTxt;
+        public Text bestTimeTxt;
 
         public override void Show(bool isShow)
         {
@@ -41,37 +41,35 @@ namespace PhucLH.AdventureGame
                 }
             }
 
-            if (liveCountingTxt)
-            {
-                liveCountingTxt.text = $"x {GameManager.Ins.CurrentLive}";
-            }
-
-            if (hpCountingTxt)
-            {
-                hpCountingTxt.text = $"x {GameManager.Ins.player.CurHp}";
-            }
-
             if (timeCountingTxt)
             {
                 timeCountingTxt.text = $"x {Helper.TimeConvert(GameManager.Ins.PlayTime)}";
             }
 
-            if (coinCountingTxt)
+            if (bestTimeTxt)
             {
-                coinCountingTxt.text = $"x {GameManager.Ins.CurrentCoin}";
+                bestTimeTxt.text = $"x {Helper.TimeConvert(GameData.Ins.GetLevelScored(LevelManager.Ins.CurrentLevelId))}";
             }
-            Time.timeScale = 0f;
+
+            if (coinText)
+            {
+                coinText.text = $"{GameManager.Ins.CurrentCoin}";
+            }
+            //Time.timeScale = 0f;
         }
         public void Replay()
         {
             Close();
             GameManager.Ins.Replay();
+            Time.timeScale = 1f;
         }
 
         public void NextLevel()
         {
-            Close();
-            GameManager.Ins.NextLevel();
+            // Close();
+            // GameManager.Ins.NextLevel();
+            // Time.timeScale = 1f;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

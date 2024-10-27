@@ -84,7 +84,7 @@ namespace PhucLH.AdventureGame
         public void UpdateLevelScored(int levelId, float completeTime)
         {
             float oldCompleteTime = GetLevelScored(levelId);
-            if (completeTime < oldCompleteTime)
+            if (completeTime < oldCompleteTime || oldCompleteTime == 0)
             {
                 UpdateValue<float>(ref completeTimes, levelId, completeTime);
             }

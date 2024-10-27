@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3014969409800323754}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8867083565734557917}
   - component: {fileID: 9076122404695583943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObstacleChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   ladderLayer:
     serializedVersion: 2
     m_Bits: 128
-  checkingRadius: 0.15
+  checkingRadius: 0.3
   deepWaterCheckingDistance: 0.1
   offSet: {x: 0, y: -1, z: 0}
   deepWaterOffSet: {x: 0, y: 0.45, z: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 534830995581169654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175323559268262893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 8294944779095902891}
   - component: {fileID: 2016719580255218769}
   - component: {fileID: 4249691702593788782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
