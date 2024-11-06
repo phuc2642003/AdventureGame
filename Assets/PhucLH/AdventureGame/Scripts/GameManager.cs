@@ -93,6 +93,7 @@ namespace PhucLH.AdventureGame
             currentCoin = 0;
             GameData.Ins.live = 1;
             GameData.Ins.hp = 3;
+            GameData.Ins.bullet = 7;
             GameData.Ins.SaveData();
         }
         public void Revive()

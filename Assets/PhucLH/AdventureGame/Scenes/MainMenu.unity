@@ -3182,19 +3182,12 @@ MonoBehaviour:
   - price: 500
     previewSprite: {fileID: 21300000, guid: 4ed4b25b6e06bb04baab74c794aee586, type: 3}
     goal:
-      timeToGet1Star: 0
-      timeToGet2Stars: 0
-      timeToGet3Stars: 0
-    firstCheckpoint: {x: 0, y: 0, z: 0}
+      timeToGet1Star: 300
+      timeToGet2Stars: 180
+      timeToGet3Stars: 120
+    firstCheckpoint: {x: -5, y: -1.2, z: 0}
   - price: 800
     previewSprite: {fileID: 21300000, guid: a0a5acb2800c7044584601213b1fe5f4, type: 3}
-    goal:
-      timeToGet1Star: 0
-      timeToGet2Stars: 0
-      timeToGet3Stars: 0
-    firstCheckpoint: {x: 0, y: 0, z: 0}
-  - price: 1000
-    previewSprite: {fileID: 21300000, guid: df6d94a433e1c664cab4bc50793e10f8, type: 3}
     goal:
       timeToGet1Star: 0
       timeToGet2Stars: 0

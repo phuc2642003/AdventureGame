@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c6a8950aa80b241be3d74c7ba5563c, type: 3}
   m_Name: Bird
   m_EditorClassIdentifier: 
-  hp: 3
-  moveSpeed: 1.5
+  hp: 4
+  moveSpeed: 2
   Damage: 1
   knockBackTime: 0.15
   knockBackForce: 9
   invincibleTime: 0.15
-  chasingSpeed: 2
+  chasingSpeed: 3.5

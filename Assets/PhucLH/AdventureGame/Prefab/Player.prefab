@@ -271,7 +271,7 @@ MonoBehaviour:
     m_Bits: 128
   checkingRadius: 0.3
   deepWaterCheckingDistance: 0.1
-  offSet: {x: 0, y: -1, z: 0}
+  offSet: {x: -0.1, y: -1, z: 0}
   deepWaterOffSet: {x: 0, y: 0.45, z: 0}
 --- !u!1 &446990626100327371
 GameObject:
