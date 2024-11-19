@@ -55,6 +55,7 @@ namespace PhucLH.AdventureGame
             {
                 dataList[index] = value;
             }
+            SaveData();
         }
         #region Level
         public bool GetLevelUnlocked(int id)

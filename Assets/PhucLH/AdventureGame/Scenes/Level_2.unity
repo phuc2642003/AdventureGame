@@ -31676,7 +31676,7 @@ MonoBehaviour:
     - {fileID: 1142620130}
     SpeedRatio: 0.1
     RepositionLogic:
-      PositionMode: 1
+      PositionMode: 4
       ScaleHeight: 0
       SortingOrder: 1
       MinYPercent: 0
@@ -31687,7 +31687,7 @@ MonoBehaviour:
     - {fileID: 277270450}
     SpeedRatio: 0.15
     RepositionLogic:
-      PositionMode: 1
+      PositionMode: 4
       ScaleHeight: 0
       SortingOrder: 3
       MinYPercent: 0
@@ -31698,7 +31698,7 @@ MonoBehaviour:
     - {fileID: 1450732942}
     SpeedRatio: 0.3
     RepositionLogic:
-      PositionMode: 1
+      PositionMode: 4
       ScaleHeight: 0
       SortingOrder: 2
       MinYPercent: 0

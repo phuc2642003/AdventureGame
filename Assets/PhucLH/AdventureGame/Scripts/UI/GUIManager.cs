@@ -38,7 +38,6 @@ namespace PhucLH.AdventureGame
         {
             UpdateTxt(liveCountingTxt, "x" + live.ToString());
         }
-
         public void UpdateHp(int hp)
         {
             UpdateTxt(hpCountingTxt, "x" + hp.ToString());

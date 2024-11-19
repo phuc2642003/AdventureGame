@@ -9,9 +9,6 @@ namespace PhucLH.AdventureGame
         protected override void TriggerHandle()
         {
             player.CurHp += bonus;
-            GameData.Ins.hp = player.CurHp;
-            GameData.Ins.SaveData();
-            GUIManager.Ins.UpdateHp(GameData.Ins.hp);
         }
     }
 

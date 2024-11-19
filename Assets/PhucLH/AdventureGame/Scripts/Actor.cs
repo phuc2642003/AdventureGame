@@ -36,7 +36,13 @@ namespace PhucLH.AdventureGame
         protected float m_curSpeed;
         protected int m_hozDir, m_vertDir;
 
-        public int CurHp { get => m_curHp; set => m_curHp = value; }
+        public int CurHp { get => m_curHp;
+            set
+            {
+                m_curHp = value;
+                OnPlayerHPChange();
+            }  
+        }
         public float CurSpeed { get => m_curSpeed; }
 
         public bool IsFacingLeft
@@ -70,14 +76,14 @@ namespace PhucLH.AdventureGame
         {
             if (m_isInvincible || m_isKnockBack) return;
 
-            if (m_curHp > 0)
+            if (CurHp > 0)
             {
                 m_whoHit = whoHit;
-                m_curHp -= dmg;
+                CurHp -= dmg;
 
-                if (m_curHp <= 0)
+                if (CurHp <= 0)
                 {
-                    m_curHp = 0;
+                    CurHp = 0;
                     Dead();
                 }
                 KnockBack();
@@ -208,6 +214,11 @@ namespace PhucLH.AdventureGame
                     curTime = startingTime;
                 }
             }
+        }
+
+        public virtual void OnPlayerHPChange()
+        {
+            
         }
     }
 }

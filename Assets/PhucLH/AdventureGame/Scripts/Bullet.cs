@@ -20,36 +20,34 @@ namespace PhucLH.AdventureGame
         private void Awake()
         {
             activeTime = timeToInactive;
-            startPosition = transform.position;   
+            
         }
 
+        private void OnEnable()
+        {
+            startPosition = transform.position;   
+        }
         private void Update()
         {
-            if (gameObject.activeInHierarchy)
-            {
-                transform.Translate(transform.right * speed * Time.deltaTime, Space.World);
-            }
-            else
-            {
-                transform.position = startPosition;
-            }
+            transform.Translate(transform.right * speed * Time.deltaTime,Space.World);
         }
         private void FixedUpdate()
         {
             InactiveDelay();
-            
             Vector2 bulletDirection = (Vector2)(transform.position - startPosition);
+            //Debug.Log(transform.position +" " +startPosition);
             float distance = bulletDirection.magnitude;
             startPosition = transform.position;
             RaycastHit2D hit = Physics2D.Raycast(startPosition, bulletDirection, distance, targetLayer);
             if (hit && hit.collider)
             {
+                
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 if (enemy)
                 {
                     enemy.TakeDamage(owner.stat.Damage, owner);
+                    InactiveObject();
                 }
-                InactiveObject();
             }
         }
         private void InactiveDelay()
@@ -60,8 +58,8 @@ namespace PhucLH.AdventureGame
                 if (activeTime <= 0)
                 {
                     InactiveObject();
-                }    
-            }     
+                }       
+            }
         }
 
         private void InactiveObject()

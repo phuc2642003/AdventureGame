@@ -140,4 +140,14 @@ namespace PhucLH.AdventureGame
             }
         }
     }
+    public enum EventID
+    {
+        None = 0,
+        OnLiveChange,
+        OnHpChange,
+        OnBulletChange,
+        OnCoinChange,
+        OnKeyChange,
+        OnPlayTimeChange
+    } 
 }

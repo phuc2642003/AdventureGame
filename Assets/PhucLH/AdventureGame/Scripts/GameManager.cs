@@ -22,13 +22,57 @@ namespace PhucLH.AdventureGame
         private float playTime;
         private int goalStar;
 
-        public int CurrentLive { get => currentLive; set => currentLive = value; }
-        public int CurrentCoin { get => currentCoin; set => currentCoin = value; }
-        public int CurrentKey { get => currentKey; set => currentKey = value; }
-        public int CurrentBullet { get => currentBullet; set => currentBullet = value; }
+        public int CurrentLive
+        {
+            get => currentLive;
+            set
+            {
+                currentLive = value;
+                this.PostEvent(EventID.OnLiveChange);
+            }
+        }
+        public int CurrentCoin
+        {
+            get => currentCoin;
+            set
+            {
+                currentCoin = value;
+                this.PostEvent(EventID.OnCoinChange);
+            }
+            
+        }
+        public int CurrentKey
+        {
+            get => currentKey;
+            set
+            {
+                currentKey = value;
+                this.PostEvent(EventID.OnKeyChange);
+            }
+        }
+        public int CurrentBullet
+        {
+            get => currentBullet;
+            set
+            {
+                currentBullet = value;
+                this.PostEvent(EventID.OnBulletChange);
+            }
+        }
+
         public int GoalStar { get => goalStar; }
         public StateMachine<GameState> Fsm { get => fsm;}
-        public float PlayTime { get => playTime; set => playTime = value; }
+
+        public float PlayTime
+        {
+            get => playTime;
+            set
+            {
+                playTime = value;
+                this.PostEvent(EventID.OnPlayTimeChange);
+            }
+            
+        }
 
         // Start is called before the first frame update
         public override void Awake()
@@ -39,47 +83,75 @@ namespace PhucLH.AdventureGame
         }
         private void Start()
         {
+            this.RegisterListener(EventID.OnBulletChange, (param)=>OnBulletChange());
+            this.RegisterListener(EventID.OnCoinChange, (param)=>OnCoinChange());
+            this.RegisterListener(EventID.OnHpChange, (param)=>OnHpChange());
+            this.RegisterListener(EventID.OnLiveChange, (param)=>OnLiveChange());
+            this.RegisterListener(EventID.OnKeyChange, (param)=>OnKeyChange());
+            this.RegisterListener(EventID.OnPlayTimeChange, (param)=>GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(playTime)));
+            
             LoadData();
             StartCoroutine(CamFollowDelay());
             GUIManager.Ins.ShowMobileGamepad(setting.isOnMobile);
             AudioController.ins.PlayBackgroundMusic();
         }
+        private void OnBulletChange()
+        {
+            GUIManager.Ins.UpdateBullet(CurrentBullet);
+            GameData.Ins.bullet = CurrentBullet;
+            GameData.Ins.SaveData();
+        }
+        private void OnCoinChange()
+        {
+            GUIManager.Ins.UpdateCoin(CurrentCoin);
+        }
+        private void OnHpChange()
+        {
+            GUIManager.Ins.UpdateHp(player.CurHp);
+            GameData.Ins.hp = player.CurHp;
+            GameData.Ins.SaveData();
+        }   
+        private void OnLiveChange()
+        {
+            GUIManager.Ins.UpdateLive(CurrentLive);
+            GameData.Ins.live = CurrentLive;
+            GameData.Ins.SaveData();
+        }
+        private void OnKeyChange()
+        {
+            GUIManager.Ins.UpdateKey(CurrentKey);
+            GameData.Ins.key = CurrentKey;
+            GameData.Ins.SaveData();
+        }
         private void LoadData()
         {
-            currentLive = setting.startingLive;
-            currentBullet = setting.startBullet;
+            CurrentLive = setting.startingLive;
+            CurrentBullet = setting.startBullet;
 
             if(GameData.Ins.live !=0)
             {
-                currentLive= GameData.Ins.live;
+                CurrentLive= GameData.Ins.live;
             }    
             if(GameData.Ins.bullet!=0)
             {
-                currentBullet = GameData.Ins.bullet;
+                CurrentBullet = GameData.Ins.bullet;
             }
             if (GameData.Ins.key != 0)
             {
-                currentKey = GameData.Ins.key;
+                CurrentKey = GameData.Ins.key;
             }
             if (GameData.Ins.hp != 0)
             {
                 player.CurHp = GameData.Ins.hp;
             }
 
+            CurrentCoin = 0;
+            CurrentKey = 0;
             Vector3 checkPoint = GameData.Ins.GetCheckPoint(LevelManager.Ins.CurrentLevelId);
             if(checkPoint!= Vector3.zero)
             {
                 player.transform.position = checkPoint;
             }
-            
-            
-            GUIManager.Ins.UpdateLive(currentLive);
-            GUIManager.Ins.UpdateHp(player.CurHp);
-            GUIManager.Ins.UpdateCoin(currentCoin);
-            GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(playTime));
-            GUIManager.Ins.UpdateBullet(currentBullet);
-            GUIManager.Ins.UpdateKey(currentKey);
-            
         }    
         public void BackToCheckPoint()
         {
@@ -90,7 +162,7 @@ namespace PhucLH.AdventureGame
         {
             GameData.Ins.UpdateCheckedPoint(LevelManager.Ins.CurrentLevelId, LevelManager.Ins.GetLevel.firstCheckpoint);
             playTime = 0;
-            currentCoin = 0;
+            CurrentCoin = 0;
             GameData.Ins.live = 1;
             GameData.Ins.hp = 3;
             GameData.Ins.bullet = 7;
@@ -98,18 +170,15 @@ namespace PhucLH.AdventureGame
         }
         public void Revive()
         {
-            currentLive--;
+            CurrentLive--;
             player.CurHp = player.stat.hp;
             GameData.Ins.hp = player.CurHp;
-            GameData.Ins.live = currentLive;
-            GameData.Ins.SaveData();
+            GameData.Ins.live = CurrentLive;
             BackToCheckPoint();
-            GUIManager.Ins.UpdateLive(currentLive);
         }    
         public void AddCoins(int coins)
         {
-            currentCoin += coins;
-            GUIManager.Ins.UpdateCoin(currentCoin);
+            CurrentCoin += coins;
         }    
         public void Replay()
         {
@@ -137,7 +206,6 @@ namespace PhucLH.AdventureGame
                 player.transform.position.y + 0.5f,
                 player.transform.position.z
                 ));
-            GameData.Ins.SaveData();
         }  
         
         public void Gameover()
@@ -147,8 +215,7 @@ namespace PhucLH.AdventureGame
         public void LevelFailed()
         {
             fsm.ChangeState(GameState.LevelFail);
-            GameData.Ins.coin += currentCoin;
-            GameData.Ins.SaveData();
+            GameData.Ins.coin += CurrentCoin;
             if (GUIManager.Ins.lvFailedDialog)
             {
                 GUIManager.Ins.lvFailedDialog.Show(true);
@@ -163,15 +230,14 @@ namespace PhucLH.AdventureGame
             GameData.Ins.UpdateLevelScored(LevelManager.Ins.CurrentLevelId,
                 Mathf.RoundToInt(playTime));
             goalStar = LevelManager.Ins.GetLevel.goal.GetStar(Mathf.RoundToInt(playTime));
-            GameData.Ins.coin += currentCoin;
-            GameData.Ins.SaveData();
+            GameData.Ins.coin += CurrentCoin;
             if (GUIManager.Ins.lvClearedDialog)
             {
                 GUIManager.Ins.lvClearedDialog.Show(true);
             }
             AudioController.ins.PlaySound(AudioController.ins.missionComplete);
             ResetGameplayInfo();
-            
+
         }
         private IEnumerator CamFollowDelay()
         {
@@ -188,11 +254,8 @@ namespace PhucLH.AdventureGame
         }
         public void ReduceBullet()
         {
-            currentBullet--;
-            GameData.Ins.bullet = currentBullet;
-            GameData.Ins.SaveData();
-            
-            GUIManager.Ins.UpdateBullet(currentBullet);
+            CurrentBullet--;
+            GameData.Ins.bullet = CurrentBullet;
         }
         #region FSM
         protected void Starting_Enter() { }
@@ -200,11 +263,8 @@ namespace PhucLH.AdventureGame
         protected void Starting_Exit() { }
         protected void Playing_Enter() { }
         protected void Playing_Update() {
-            //if (GameData.Ins.IsLevelPassed(LevelManager.Ins.CurrentLevelId)) return;
-
-            playTime += Time.deltaTime;
+            PlayTime += Time.deltaTime;
             
-            GUIManager.Ins.UpdatePlayTime(Helper.TimeConvert(playTime));
         }
         protected void Playing_Exit() { }
         protected void LevelClear_Enter() { }

@@ -9,9 +9,6 @@ namespace PhucLH.AdventureGame
         protected override void TriggerHandle()
         {
             GameManager.Ins.CurrentBullet += bonus;
-            GameData.Ins.bullet = GameManager.Ins.CurrentBullet;
-            GameData.Ins.SaveData();
-            GUIManager.Ins.UpdateBullet(GameData.Ins.bullet);
         }
     }
 
