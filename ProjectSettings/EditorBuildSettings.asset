@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/PhucLH/AdventureGame/Scenes/Login.unity
+    guid: 7c5ec59da86411643b93642ccafbe275
+  - enabled: 1
     path: Assets/PhucLH/AdventureGame/Scenes/MainMenu.unity
     guid: f3982240592f690469ecd2db47b91446
   - enabled: 1

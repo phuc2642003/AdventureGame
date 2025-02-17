@@ -150,4 +150,62 @@ namespace PhucLH.AdventureGame
         OnKeyChange,
         OnPlayTimeChange
     } 
+    [System.Serializable]
+    public class GameDataModel
+    {
+        public int coin;
+        public int currentLevelId;
+        public float musicVol;
+        public float soundVol;
+        public int hp;
+        public int live;
+        public int bullet;
+        public int key;
+        public List<Vector3Data> checkPoints;
+        public List<bool> levelUnlocked;
+        public List<bool> levelPasseds;
+        public List<float> playTimes;
+        public List<float> completeTimes;
+
+        public GameDataModel(GameData data)
+        {
+            coin = data.coin;
+            currentLevelId = data.currentLevelId;
+            musicVol = data.musicVol;
+            soundVol = data.soundVol;
+            hp = data.hp;
+            live = data.live;
+            bullet = data.bullet;
+            key = data.key;
+
+            checkPoints = new List<Vector3Data>();
+            foreach (var point in data.checkPoints)
+            {
+                checkPoints.Add(new Vector3Data(point));
+            }
+
+            levelUnlocked = new List<bool>(data.levelUnlocked);
+            levelPasseds = new List<bool>(data.levelPasseds);
+            playTimes = new List<float>(data.playTimes);
+            completeTimes = new List<float>(data.completeTimes);
+        }
+    }
+
+    [System.Serializable]
+    public class Vector3Data
+    {
+        public float x, y, z;
+
+        public Vector3Data(Vector3 vector)
+        {
+            x = vector.x;
+            y = vector.y;
+            z = vector.z;
+        }
+
+        public Vector3 ToVector3()
+        {
+            return new Vector3(x, y, z);
+        }
+    }
 }
